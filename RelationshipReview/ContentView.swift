@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State var checkInViewModel: CheckInViewModel
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
+        CheckInView(checkInViewModel: checkInViewModel)
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+  ContentView(checkInViewModel: MockData().mockCheckInViewModel)
+}
+
+struct MockData {
+  let mockPrompt = Prompt(id: "1", type: .general, description: "What's your rating?", communicationLevel: .beginner)
+  let mockCheckInViewModel = CheckInViewModel(checkIn: CheckIn(id: "1", promptId: "1", answer: "Great", partnerAnswer: "Not Great", markedAsDiscussion: true))
 }

@@ -16,4 +16,5 @@ struct User {
   var gender: Gender
   var sexualOrientation: SexualOrientation
   var profileImageURL: String?
+  var relationshipId: String
 }

@@ -17,17 +17,19 @@ struct Prompt {
   var id: String
   var type: PromptType
   var description: String
-  var relationshipLevel: CommunicationLevel
+  var communicationLevel: CommunicationLevel
 }
 
 enum PromptType {
   case intimacy
   case general
+  case marriage
 }
 
 struct CheckIn {
   var id: String
   var promptId: String
   var answer: String
+  var partnerAnswer: String
   var markedAsDiscussion: Bool
 }

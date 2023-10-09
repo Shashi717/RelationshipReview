@@ -18,6 +18,10 @@
 		9B3D9D9E2AD46B4E00BA8BD3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D9D2AD46B4E00BA8BD3 /* User.swift */; };
 		9B3D9DA02AD46B7F00BA8BD3 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D9F2AD46B7F00BA8BD3 /* Relationship.swift */; };
 		9B3D9DA22AD46D1A00BA8BD3 /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DA12AD46D1A00BA8BD3 /* CheckIn.swift */; };
+		9B3D9DA52AD48C2100BA8BD3 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DA42AD48C2100BA8BD3 /* ReviewViewModel.swift */; };
+		9B3D9DA72AD493CD00BA8BD3 /* CheckInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DA62AD493CC00BA8BD3 /* CheckInViewModel.swift */; };
+		9B3D9DAA2AD496CD00BA8BD3 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DA92AD496CD00BA8BD3 /* CheckInView.swift */; };
+		9B3D9DAC2AD49B5E00BA8BD3 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DAB2AD49B5E00BA8BD3 /* PromptView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,10 @@
 		9B3D9D9D2AD46B4E00BA8BD3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B3D9D9F2AD46B7F00BA8BD3 /* Relationship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relationship.swift; sourceTree = "<group>"; };
 		9B3D9DA12AD46D1A00BA8BD3 /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
+		9B3D9DA42AD48C2100BA8BD3 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		9B3D9DA62AD493CC00BA8BD3 /* CheckInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewModel.swift; sourceTree = "<group>"; };
+		9B3D9DA92AD496CD00BA8BD3 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
+		9B3D9DAB2AD49B5E00BA8BD3 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +112,10 @@
 			children = (
 				9B3D9D712AD4678900BA8BD3 /* RelationshipReviewApp.swift */,
 				9B3D9D732AD4678900BA8BD3 /* ContentView.swift */,
-				9B3D9D9B2AD467C100BA8BD3 /* CommunicationLevel.swift */,
-				9B3D9D9D2AD46B4E00BA8BD3 /* User.swift */,
-				9B3D9D9F2AD46B7F00BA8BD3 /* Relationship.swift */,
-				9B3D9DA12AD46D1A00BA8BD3 /* CheckIn.swift */,
+				9B3D9DAB2AD49B5E00BA8BD3 /* PromptView.swift */,
+				9B3D9DA92AD496CD00BA8BD3 /* CheckInView.swift */,
+				9B3D9DA82AD493D700BA8BD3 /* ViewModel */,
+				9B3D9DA32AD4787B00BA8BD3 /* Model */,
 				9B3D9D752AD4678B00BA8BD3 /* Assets.xcassets */,
 				9B3D9D772AD4678B00BA8BD3 /* Preview Content */,
 			);
@@ -137,6 +145,26 @@
 				9B3D9D8E2AD4678B00BA8BD3 /* RelationshipReviewUITestsLaunchTests.swift */,
 			);
 			path = RelationshipReviewUITests;
+			sourceTree = "<group>";
+		};
+		9B3D9DA32AD4787B00BA8BD3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B3D9D9B2AD467C100BA8BD3 /* CommunicationLevel.swift */,
+				9B3D9D9D2AD46B4E00BA8BD3 /* User.swift */,
+				9B3D9D9F2AD46B7F00BA8BD3 /* Relationship.swift */,
+				9B3D9DA12AD46D1A00BA8BD3 /* CheckIn.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9B3D9DA82AD493D700BA8BD3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9B3D9DA42AD48C2100BA8BD3 /* ReviewViewModel.swift */,
+				9B3D9DA62AD493CC00BA8BD3 /* CheckInViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,10 +299,14 @@
 			files = (
 				9B3D9DA02AD46B7F00BA8BD3 /* Relationship.swift in Sources */,
 				9B3D9DA22AD46D1A00BA8BD3 /* CheckIn.swift in Sources */,
+				9B3D9DA72AD493CD00BA8BD3 /* CheckInViewModel.swift in Sources */,
+				9B3D9DA52AD48C2100BA8BD3 /* ReviewViewModel.swift in Sources */,
 				9B3D9D9E2AD46B4E00BA8BD3 /* User.swift in Sources */,
 				9B3D9D742AD4678900BA8BD3 /* ContentView.swift in Sources */,
 				9B3D9D722AD4678900BA8BD3 /* RelationshipReviewApp.swift in Sources */,
 				9B3D9D9C2AD467C100BA8BD3 /* CommunicationLevel.swift in Sources */,
+				9B3D9DAC2AD49B5E00BA8BD3 /* PromptView.swift in Sources */,
+				9B3D9DAA2AD496CD00BA8BD3 /* CheckInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
