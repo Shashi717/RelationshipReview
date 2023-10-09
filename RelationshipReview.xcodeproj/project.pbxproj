@@ -14,6 +14,10 @@
 		9B3D9D832AD4678B00BA8BD3 /* RelationshipReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D822AD4678B00BA8BD3 /* RelationshipReviewTests.swift */; };
 		9B3D9D8D2AD4678B00BA8BD3 /* RelationshipReviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D8C2AD4678B00BA8BD3 /* RelationshipReviewUITests.swift */; };
 		9B3D9D8F2AD4678B00BA8BD3 /* RelationshipReviewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D8E2AD4678B00BA8BD3 /* RelationshipReviewUITestsLaunchTests.swift */; };
+		9B3D9D9C2AD467C100BA8BD3 /* CommunicationLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D9B2AD467C100BA8BD3 /* CommunicationLevel.swift */; };
+		9B3D9D9E2AD46B4E00BA8BD3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D9D2AD46B4E00BA8BD3 /* User.swift */; };
+		9B3D9DA02AD46B7F00BA8BD3 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D9F2AD46B7F00BA8BD3 /* Relationship.swift */; };
+		9B3D9DA22AD46D1A00BA8BD3 /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DA12AD46D1A00BA8BD3 /* CheckIn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		9B3D9D882AD4678B00BA8BD3 /* RelationshipReviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RelationshipReviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3D9D8C2AD4678B00BA8BD3 /* RelationshipReviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipReviewUITests.swift; sourceTree = "<group>"; };
 		9B3D9D8E2AD4678B00BA8BD3 /* RelationshipReviewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipReviewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9B3D9D9B2AD467C100BA8BD3 /* CommunicationLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationLevel.swift; sourceTree = "<group>"; };
+		9B3D9D9D2AD46B4E00BA8BD3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9B3D9D9F2AD46B7F00BA8BD3 /* Relationship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relationship.swift; sourceTree = "<group>"; };
+		9B3D9DA12AD46D1A00BA8BD3 /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,10 @@
 			children = (
 				9B3D9D712AD4678900BA8BD3 /* RelationshipReviewApp.swift */,
 				9B3D9D732AD4678900BA8BD3 /* ContentView.swift */,
+				9B3D9D9B2AD467C100BA8BD3 /* CommunicationLevel.swift */,
+				9B3D9D9D2AD46B4E00BA8BD3 /* User.swift */,
+				9B3D9D9F2AD46B7F00BA8BD3 /* Relationship.swift */,
+				9B3D9DA12AD46D1A00BA8BD3 /* CheckIn.swift */,
 				9B3D9D752AD4678B00BA8BD3 /* Assets.xcassets */,
 				9B3D9D772AD4678B00BA8BD3 /* Preview Content */,
 			);
@@ -257,8 +269,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B3D9DA02AD46B7F00BA8BD3 /* Relationship.swift in Sources */,
+				9B3D9DA22AD46D1A00BA8BD3 /* CheckIn.swift in Sources */,
+				9B3D9D9E2AD46B4E00BA8BD3 /* User.swift in Sources */,
 				9B3D9D742AD4678900BA8BD3 /* ContentView.swift in Sources */,
 				9B3D9D722AD4678900BA8BD3 /* RelationshipReviewApp.swift in Sources */,
+				9B3D9D9C2AD467C100BA8BD3 /* CommunicationLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
