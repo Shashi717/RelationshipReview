@@ -11,7 +11,7 @@ import SwiftUI
 struct RelationshipReviewApp: App {
     var body: some Scene {
         WindowGroup {
-          ContentView(checkInViewModel: MockData().mockCheckInViewModel)
+          ContentView(promptsViewModel: MockData().mockPromptsViewModel)
         }
     }
 }

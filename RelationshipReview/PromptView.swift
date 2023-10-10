@@ -8,25 +8,12 @@
 import SwiftUI
 
 struct PromptView: View {
-  @State var promptViewModel: PromptViewModel
+  @ObservedObject var promptViewModel: PromptViewModel
   var body: some View {
     VStack {
       Text(promptViewModel.description)
-      TextField("", text: $promptViewModel.answer)
+      TextField("Enter your answer here", text: $promptViewModel.answer).textFieldStyle(.roundedBorder)
     }
   }
 }
 
-class PromptViewModel {
-  private let prompt: Prompt
-
-  var description: String {
-    prompt.description
-  }
-  var answer: String
-
-  init(prompt: Prompt) {
-    self.prompt = prompt
-    self.answer = ""
-  }
-}

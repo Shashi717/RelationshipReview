@@ -5,21 +5,52 @@
 //  Created by Shashi Liyanage on 10/9/23.
 //
 
+import Foundation
 import SwiftUI
 
 struct ContentView: View {
-  @State var checkInViewModel: CheckInViewModel
-    var body: some View {
-        CheckInView(checkInViewModel: checkInViewModel)
-        .padding()
+  @ObservedObject var promptsViewModel: PrompstViewModel
+  @State var currentIndex = 0
+  @State var presentAlert = false
+
+  var body: some View {
+    VStack {
+      PromptView(promptViewModel: promptsViewModel.prompts[currentIndex]).padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+
+      HStack {
+        // make sure index doesn't go out of bounds
+        Button(action: {
+          if currentIndex > 0 {
+            currentIndex -= 1
+          }
+        }, label: {
+          Text("Previous")
+        }).buttonStyle(.bordered)
+
+        Button(action: {
+          if currentIndex < promptsViewModel.prompts.count - 1 {
+            currentIndex += 1
+          }
+        }, label: {
+          Text("Next")
+        }).buttonStyle(.bordered)
+        
+        Button(action: {
+          if promptsViewModel.isCompleted {
+            presentAlert = false
+            print("completed")
+          } else {
+            presentAlert = true
+          }
+        }, label: {
+          Text("Submit")
+        }).buttonStyle(.bordered)
+      }
+      .alert("Please complete all the prompts", isPresented: $presentAlert, actions: {})
     }
+  }
 }
 
 #Preview {
-  ContentView(checkInViewModel: MockData().mockCheckInViewModel)
-}
-
-struct MockData {
-  let mockPrompt = Prompt(id: "1", type: .general, description: "What's your rating?", communicationLevel: .beginner)
-  let mockCheckInViewModel = CheckInViewModel(checkIn: CheckIn(id: "1", promptId: "1", answer: "Great", partnerAnswer: "Not Great", markedAsDiscussion: true))
+  ContentView(promptsViewModel: MockData().mockPromptsViewModel)
 }

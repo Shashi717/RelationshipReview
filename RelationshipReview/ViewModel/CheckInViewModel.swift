@@ -5,7 +5,6 @@
 //  Created by Shashi Liyanage on 10/9/23.
 //
 
-import Foundation
 import UIKit
 
 class CheckInViewModel {

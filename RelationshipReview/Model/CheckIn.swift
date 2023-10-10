@@ -5,8 +5,6 @@
 //  Created by Shashi Liyanage on 10/9/23.
 //
 
-import Foundation
-
 struct Review {
   var id: String
   var date: String
