@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "0",
+      "communication_level": "0",
+      "description": "What went well in our relationship this week?"
+    },
+    {
+      "id": "2",
+      "type": "0",
+      "communication_level": "0",
+      "description": "How well supported by me did you feel this week?"
+    },
+    {
+      "id": "3",
+      "type": "0",
+      "communication_level": "0",
+      "description": "What is something I did that made you feel loved, appreciated or respected this week?"
+    },
+    {
+      "id": "4",
+      "type": "0",
+      "communication_level": "0",
+      "description": "What are your main stressors at the moment? How can I help?"
+    },
+    {
+      "id": "5",
+      "type": "0",
+      "communication_level": "0",
+      "description": "What went not so well in our relationship last week?"
+    }
+  ]
+}

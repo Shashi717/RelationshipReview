@@ -9,13 +9,18 @@ import Foundation
 
 class PromptViewModel: ObservableObject {
   private let prompt: Prompt
-  var promptId: String
   @Published var answer: String
+  var promptId: String {
+    prompt.id
+  }
   var description: String {
     prompt.description
   }
   var isCompleted: Bool {
     !answer.isEmpty
+  }
+  var type: PromptType {
+    prompt.type
   }
 
   init(prompt: Prompt) {

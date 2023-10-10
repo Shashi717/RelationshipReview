@@ -12,5 +12,5 @@ struct Relationship {
   var partnerId: String
   var communicationLevel: CommunicationLevel
   var relationshipStartDate: String
-  var excludedPromptTypes: [PromptType]
+  var excludedPromptTypes: Set<PromptType>
 }

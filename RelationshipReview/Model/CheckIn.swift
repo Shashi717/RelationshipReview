@@ -19,8 +19,8 @@ struct Prompt {
 }
 
 enum PromptType {
-  case intimacy
   case general
+  case intimacy
   case marriage
 }
 

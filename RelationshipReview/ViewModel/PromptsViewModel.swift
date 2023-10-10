@@ -8,7 +8,8 @@
 import Foundation
 
 class PrompstViewModel: ObservableObject {
-  let prompts: [PromptViewModel]
+  var prompts: [PromptViewModel]
+  let relationship: Relationship
 
   var isCompleted: Bool {
     for prompt in prompts {
@@ -21,11 +22,20 @@ class PrompstViewModel: ObservableObject {
 
   init(prompts: [PromptViewModel]) {
     self.prompts = prompts
+    self.relationship = Relationship(id: "1", partnerId: "2", communicationLevel: .beginner, relationshipStartDate: Date.now.description, excludedPromptTypes: [.marriage])
+  }
+
+  func getPrompts() {
+    let prompts: [PromptViewModel] = []
+    self.prompts = prompts.filter { prompt in
+      !relationship.excludedPromptTypes.contains(prompt.type)
+    }
   }
 
   func submitAnswers() {
     if isCompleted {
       let answers: [[String:String]] = prompts.map { [$0.promptId : $0.answer] }
+      print("completed")
     }
   }
 }

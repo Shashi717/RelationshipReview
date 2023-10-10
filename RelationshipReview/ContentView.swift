@@ -15,7 +15,7 @@ struct ContentView: View {
 
   var body: some View {
     VStack {
-      PromptView(promptViewModel: promptsViewModel.prompts[currentIndex]).padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+      PromptView(promptViewModel: promptsViewModel.prompts[currentIndex]).padding(EdgeInsets(top: 32, leading: 32, bottom: 32, trailing: 32))
 
       HStack {
         // make sure index doesn't go out of bounds
@@ -38,7 +38,7 @@ struct ContentView: View {
         Button(action: {
           if promptsViewModel.isCompleted {
             presentAlert = false
-            print("completed")
+            promptsViewModel.submitAnswers()
           } else {
             presentAlert = true
           }
