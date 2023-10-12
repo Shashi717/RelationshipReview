@@ -9,8 +9,8 @@ import Foundation
 
 struct MockData {
   let mockCheckInViewModel = CheckInViewModel(checkIn: CheckIn(id: "1", promptId: "1", answer: "Great", partnerAnswer: "Not Great", markedAsDiscussion: true))
-  let mockPromptViewModel1 = PromptViewModel(prompt: Prompt(id: "1", type: .general, description: "What's your rating 1?", communicationLevel: .beginner))
-  let mockPromptViewModel2 = PromptViewModel(prompt: Prompt(id: "2", type: .general, description: "What's your rating 2?", communicationLevel: .beginner))
-  let mockPromptViewModel3 = PromptViewModel(prompt: Prompt(id: "3", type: .general, description: "What's your rating 3?", communicationLevel: .beginner))
-  let mockPromptsViewModel = PrompstViewModel(prompts: [PromptViewModel(prompt: Prompt(id: "1", type: .general, description: "What's your rating 1?", communicationLevel: .beginner)), PromptViewModel(prompt: Prompt(id: "2", type: .general, description: "What's your rating 2?", communicationLevel: .beginner)), PromptViewModel(prompt: Prompt(id: "3", type: .general, description: "What's your rating 3?", communicationLevel: .beginner))])
+  let mockPromptViewModel1 = PromptViewModel(prompt: Prompt(id: "1", type: 0, description: "What's your rating 1?", communicationLevel: 0))
+  let mockPromptViewModel2 = PromptViewModel(prompt: Prompt(id: "2", type: 0, description: "What's your rating 2?", communicationLevel: 0))
+  let mockPromptViewModel3 = PromptViewModel(prompt: Prompt(id: "3", type: 0, description: "What's your rating 3?", communicationLevel: 0))
+  let mockPromptsViewModel = PrompstViewModel(networkClient: NetworkClient(), prompts: [PromptViewModel(prompt: Prompt(id: "1", type: 0, description: "What's your rating 1?", communicationLevel: 0)), PromptViewModel(prompt: Prompt(id: "2", type: 0, description: "What's your rating 2?", communicationLevel: 0)), PromptViewModel(prompt: Prompt(id: "3", type: 0, description: "What's your rating 3?", communicationLevel: 0))])
 }

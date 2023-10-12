@@ -20,7 +20,16 @@ class PromptViewModel: ObservableObject {
     !answer.isEmpty
   }
   var type: PromptType {
-    prompt.type
+    switch prompt.type {
+    case 0:
+      return PromptType.general
+    case 1:
+      return PromptType.intimacy
+    case 2:
+      return PromptType.marriage
+    default:
+      return PromptType.unkown
+    }
   }
 
   init(prompt: Prompt) {

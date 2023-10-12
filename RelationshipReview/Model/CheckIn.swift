@@ -11,23 +11,39 @@ struct Review {
   var answers: [CheckIn]
 }
 
-struct Prompt {
+struct Prompt: Codable {
   var id: String
-  var type: PromptType
+  var type: Int
   var description: String
-  var communicationLevel: CommunicationLevel
+  var communicationLevel: Int
+
+  enum CodingKeys: String, CodingKey {
+    case id
+    case type
+    case description
+    case communicationLevel = "communication_level"
+  }
 }
 
 enum PromptType {
   case general
   case intimacy
   case marriage
+  case unkown
 }
 
-struct CheckIn {
+struct CheckIn: Codable {
   var id: String
   var promptId: String
   var answer: String
   var partnerAnswer: String
   var markedAsDiscussion: Bool
+
+  enum CodingKeys: String, CodingKey {
+    case id
+    case promptId = "prompt_id"
+    case answer
+    case partnerAnswer = "partner_answer"
+    case markedAsDiscussion = "marked_as_discussion"
+  }
 }

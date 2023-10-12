@@ -8,31 +8,44 @@
 import Foundation
 
 class PrompstViewModel: ObservableObject {
-  var prompts: [PromptViewModel]
+  private let networkClient: NetworkClient
   let relationship: Relationship
+  @Published var prompts: [PromptViewModel]?
 
   var isCompleted: Bool {
-    for prompt in prompts {
-      if !prompt.isCompleted {
-        return false
+    if let prompts = prompts {
+      for prompt in prompts {
+        if !prompt.isCompleted {
+          return false
+        }
       }
     }
     return true
   }
 
-  init(prompts: [PromptViewModel]) {
+  init(networkClient: NetworkClient, prompts: [PromptViewModel]? = nil) {
+    self.networkClient = networkClient
     self.prompts = prompts
     self.relationship = Relationship(id: "1", partnerId: "2", communicationLevel: .beginner, relationshipStartDate: Date.now.description, excludedPromptTypes: [.marriage])
   }
 
-  func getPrompts() {
-    let prompts: [PromptViewModel] = []
-    self.prompts = prompts.filter { prompt in
+  @MainActor
+  func getPrompts(_ urlString: String) async {
+    guard let prompts = await networkClient.fetchPrompts(urlString) else {
+      return
+    }
+    let vm = prompts.compactMap { prompt in
+      PromptViewModel(prompt: prompt)
+    }
+    self.prompts = vm.filter { prompt in
       !relationship.excludedPromptTypes.contains(prompt.type)
     }
   }
 
   func submitAnswers() {
+    guard let prompts = prompts else {
+      return
+    }
     if isCompleted {
       let answers: [[String:String]] = prompts.map { [$0.promptId : $0.answer] }
       print("completed")

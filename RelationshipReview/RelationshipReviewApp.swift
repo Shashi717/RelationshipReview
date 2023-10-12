@@ -11,7 +11,8 @@ import SwiftUI
 struct RelationshipReviewApp: App {
     var body: some Scene {
         WindowGroup {
-          ContentView(promptsViewModel: MockData().mockPromptsViewModel)
+          let promptsViewModel = PrompstViewModel(networkClient: NetworkClient())
+          ContentView(promptsViewModel: promptsViewModel)
         }
     }
 }
