@@ -7,6 +7,13 @@
 
 import Foundation
 
+enum PromptType {
+  case general
+  case intimacy
+  case marriage
+  case unkown
+}
+
 class PromptViewModel: ObservableObject {
   private let prompt: Prompt
   @Published var answer: String

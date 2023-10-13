@@ -47,14 +47,26 @@ struct ContentView: View {
           }).buttonStyle(.bordered)
         }
         .alert("Please complete all the prompts", isPresented: $presentAlert, actions: {})
+      } else {
+        // Temp for debugging
+        Button(action: {
+          guard let path = Bundle.main.path(forResource: "sample_prompts", ofType: "json") else {
+            return
+          }
+          Task {
+            await promptsViewModel.getPrompts(URL(fileURLWithPath: path))
+          }
+        }, label: {
+          Text("Retry")
+        })
       }
     }
     .onAppear {
       Task.init() {
-        guard let url = Bundle.main.path(forResource: "sample_prompts", ofType: "json") else {
+        guard let path = Bundle.main.path(forResource: "sample_prompts", ofType: "json") else {
           return
         }
-        await promptsViewModel.getPrompts(url)
+        await promptsViewModel.getPrompts(URL(fileURLWithPath: path))
       }
     }
   }

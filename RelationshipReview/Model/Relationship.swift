@@ -10,7 +10,7 @@ import Foundation
 struct Relationship {
   var id: String
   var partnerId: String
-  var communicationLevel: CommunicationLevel
+  var communicationLevel: Int
   var relationshipStartDate: String
-  var excludedPromptTypes: Set<PromptType>
+  var excludedPromptTypes: Set<Int>
 }

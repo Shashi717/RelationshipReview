@@ -27,6 +27,8 @@
 		9B3D9DB22AD5ACCF00BA8BD3 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DB12AD5ACCF00BA8BD3 /* MockData.swift */; };
 		9B3D9DB52AD5B82E00BA8BD3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DB42AD5B82E00BA8BD3 /* NetworkService.swift */; };
 		9B3D9DB72AD5BE5C00BA8BD3 /* sample_prompts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3D9DB62AD5BE5C00BA8BD3 /* sample_prompts.json */; };
+		9B3D9DB92AD9903500BA8BD3 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DB82AD9903500BA8BD3 /* Prompt.swift */; };
+		9B3D9DBB2AD9909200BA8BD3 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DBA2AD9909200BA8BD3 /* Review.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		9B3D9DB12AD5ACCF00BA8BD3 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		9B3D9DB42AD5B82E00BA8BD3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9B3D9DB62AD5BE5C00BA8BD3 /* sample_prompts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample_prompts.json; sourceTree = "<group>"; };
+		9B3D9DB82AD9903500BA8BD3 /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
+		9B3D9DBA2AD9909200BA8BD3 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,10 +166,11 @@
 		9B3D9DA32AD4787B00BA8BD3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9B3D9D9B2AD467C100BA8BD3 /* CommunicationLevel.swift */,
 				9B3D9D9D2AD46B4E00BA8BD3 /* User.swift */,
 				9B3D9D9F2AD46B7F00BA8BD3 /* Relationship.swift */,
+				9B3D9DB82AD9903500BA8BD3 /* Prompt.swift */,
 				9B3D9DA12AD46D1A00BA8BD3 /* CheckIn.swift */,
+				9B3D9DBA2AD9909200BA8BD3 /* Review.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 				9B3D9DA62AD493CC00BA8BD3 /* CheckInViewModel.swift */,
 				9B3D9DAF2AD5A0D500BA8BD3 /* PromptsViewModel.swift */,
 				9B3D9DAD2AD4AB1900BA8BD3 /* PromptViewModel.swift */,
+				9B3D9D9B2AD467C100BA8BD3 /* CommunicationLevel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -325,10 +331,12 @@
 				9B3D9DA22AD46D1A00BA8BD3 /* CheckIn.swift in Sources */,
 				9B3D9DB02AD5A0D500BA8BD3 /* PromptsViewModel.swift in Sources */,
 				9B3D9DB22AD5ACCF00BA8BD3 /* MockData.swift in Sources */,
+				9B3D9DB92AD9903500BA8BD3 /* Prompt.swift in Sources */,
 				9B3D9DA72AD493CD00BA8BD3 /* CheckInViewModel.swift in Sources */,
 				9B3D9DA52AD48C2100BA8BD3 /* ReviewViewModel.swift in Sources */,
 				9B3D9DB52AD5B82E00BA8BD3 /* NetworkService.swift in Sources */,
 				9B3D9D9E2AD46B4E00BA8BD3 /* User.swift in Sources */,
+				9B3D9DBB2AD9909200BA8BD3 /* Review.swift in Sources */,
 				9B3D9D742AD4678900BA8BD3 /* ContentView.swift in Sources */,
 				9B3D9DAE2AD4AB1900BA8BD3 /* PromptViewModel.swift in Sources */,
 				9B3D9D722AD4678900BA8BD3 /* RelationshipReviewApp.swift in Sources */,

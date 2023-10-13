@@ -9,7 +9,7 @@ import Foundation
 
 class PrompstViewModel: ObservableObject {
   private let networkClient: NetworkClient
-  let relationship: Relationship
+  private let relationship: Relationship
   @Published var prompts: [PromptViewModel]?
 
   var isCompleted: Bool {
@@ -23,10 +23,26 @@ class PrompstViewModel: ObservableObject {
     return true
   }
 
+  var excludedPromptTypes: Set<PromptType> {
+    return Set(relationship.excludedPromptTypes.compactMap { type in
+      switch type {
+      case 0:
+        return .general
+      case 1:
+        return .intimacy
+      case 2:
+        return .marriage
+      default:
+        return .unkown
+      }
+    })
+  }
+
   init(networkClient: NetworkClient, prompts: [PromptViewModel]? = nil) {
     self.networkClient = networkClient
     self.prompts = prompts
-    self.relationship = Relationship(id: "1", partnerId: "2", communicationLevel: .beginner, relationshipStartDate: Date.now.description, excludedPromptTypes: [.marriage])
+    // temp hard coded data
+    self.relationship = Relationship(id: "1", partnerId: "2", communicationLevel: 0, relationshipStartDate: Date.now.description, excludedPromptTypes: [0])
   }
 
   @MainActor
@@ -38,7 +54,21 @@ class PrompstViewModel: ObservableObject {
       PromptViewModel(prompt: prompt)
     }
     self.prompts = vm.filter { prompt in
-      !relationship.excludedPromptTypes.contains(prompt.type)
+      !excludedPromptTypes.contains(prompt.type)
+    }
+  }
+
+  // Temp method for reading from local file
+  @MainActor
+  func getPrompts(_ url: URL) async {
+    guard let prompts = await networkClient.fetchPrompts(url) else {
+      return
+    }
+    let vm = prompts.compactMap { prompt in
+      PromptViewModel(prompt: prompt)
+    }
+    self.prompts = vm.filter { prompt in
+      !excludedPromptTypes.contains(prompt.type)
     }
   }
 

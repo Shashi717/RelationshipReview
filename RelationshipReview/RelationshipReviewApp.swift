@@ -13,6 +13,9 @@ struct RelationshipReviewApp: App {
         WindowGroup {
           let promptsViewModel = PrompstViewModel(networkClient: NetworkClient())
           ContentView(promptsViewModel: promptsViewModel)
+
+//          Mock View Model for visualizing
+//          ContentView(promptsViewModel: MockData().mockPromptsViewModel)
         }
     }
 }

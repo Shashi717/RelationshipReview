@@ -26,4 +26,11 @@ struct NetworkClient {
     return try? JSONDecoder().decode([Prompt].self, from: data)
   }
 
+  // temp method for reading from local file
+  func fetchPrompts(_ url: URL) async -> [Prompt]? {
+    guard let data = try? Data(contentsOf: url) else {
+      return nil
+    }
+    return try? JSONDecoder().decode([Prompt].self, from: data)
+  }
 }

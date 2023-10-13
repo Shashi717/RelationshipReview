@@ -13,8 +13,8 @@ struct User {
   var firstName: String
   var lastName: String?
   var email: String
-  var gender: Gender
-  var sexualOrientation: SexualOrientation
+  var gender: Int
+  var sexualOrientation: Int
   var profileImageURL: String?
   var relationshipId: String
 }
