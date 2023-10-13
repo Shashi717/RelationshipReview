@@ -29,6 +29,7 @@
 		9B3D9DB72AD5BE5C00BA8BD3 /* sample_prompts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3D9DB62AD5BE5C00BA8BD3 /* sample_prompts.json */; };
 		9B3D9DB92AD9903500BA8BD3 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DB82AD9903500BA8BD3 /* Prompt.swift */; };
 		9B3D9DBB2AD9909200BA8BD3 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DBA2AD9909200BA8BD3 /* Review.swift */; };
+		9B3D9DBD2AD9997200BA8BD3 /* PromptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DBC2AD9997200BA8BD3 /* PromptsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		9B3D9DB62AD5BE5C00BA8BD3 /* sample_prompts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample_prompts.json; sourceTree = "<group>"; };
 		9B3D9DB82AD9903500BA8BD3 /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
 		9B3D9DBA2AD9909200BA8BD3 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		9B3D9DBC2AD9997200BA8BD3 /* PromptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				9B3D9D712AD4678900BA8BD3 /* RelationshipReviewApp.swift */,
 				9B3D9D732AD4678900BA8BD3 /* ContentView.swift */,
+				9B3D9DBC2AD9997200BA8BD3 /* PromptsView.swift */,
 				9B3D9DAB2AD49B5E00BA8BD3 /* PromptView.swift */,
 				9B3D9DA92AD496CD00BA8BD3 /* CheckInView.swift */,
 				9B3D9DB42AD5B82E00BA8BD3 /* NetworkService.swift */,
@@ -338,6 +341,7 @@
 				9B3D9D9E2AD46B4E00BA8BD3 /* User.swift in Sources */,
 				9B3D9DBB2AD9909200BA8BD3 /* Review.swift in Sources */,
 				9B3D9D742AD4678900BA8BD3 /* ContentView.swift in Sources */,
+				9B3D9DBD2AD9997200BA8BD3 /* PromptsView.swift in Sources */,
 				9B3D9DAE2AD4AB1900BA8BD3 /* PromptViewModel.swift in Sources */,
 				9B3D9D722AD4678900BA8BD3 /* RelationshipReviewApp.swift in Sources */,
 				9B3D9D9C2AD467C100BA8BD3 /* CommunicationLevel.swift in Sources */,
