@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// View for each prompt (question) with a space to answer
 struct PromptView: View {
   @ObservedObject var promptViewModel: PromptViewModel
   var body: some View {

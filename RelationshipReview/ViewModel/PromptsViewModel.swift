@@ -7,6 +7,7 @@
 
 import Foundation
 
+// This VM represents a set of questions to be presented to the user
 class PrompstViewModel: ObservableObject {
   private let networkClient: NetworkClient
   private let relationship: Relationship

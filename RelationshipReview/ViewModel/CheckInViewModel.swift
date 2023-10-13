@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Represents each question with the answers from user and their partner
 class CheckInViewModel {
   private let checkIn: CheckIn
 

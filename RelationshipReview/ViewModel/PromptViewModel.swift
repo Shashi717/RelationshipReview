@@ -14,6 +14,7 @@ enum PromptType {
   case unkown
 }
 
+// This VM represents each question that needs answering
 class PromptViewModel: ObservableObject {
   private let prompt: Prompt
   @Published var answer: String

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Represents set of checkins
 class ReviewViewModel {
   private let relationship: Relationship
   private let review: Review

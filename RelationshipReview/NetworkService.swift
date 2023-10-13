@@ -27,7 +27,7 @@ struct NetworkClient {
   }
 
   // temp method for reading from local file
-  func fetchPrompts(_ url: URL) async -> [Prompt]? {
+  func fetchPrompts(_ url: URL) -> [Prompt]? {
     guard let data = try? Data(contentsOf: url) else {
       return nil
     }

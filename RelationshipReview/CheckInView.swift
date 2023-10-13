@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Not in use yet
 struct CheckInView: View {
   let checkInViewModel: CheckInViewModel
   var body: some View {
