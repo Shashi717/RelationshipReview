@@ -43,26 +43,12 @@ class PrompstViewModel: ObservableObject {
     self.networkClient = networkClient
     self.prompts = prompts
     // temp hard coded data
-    self.relationship = Relationship(id: "1", partnerId: "2", communicationLevel: 0, relationshipStartDate: Date.now.description, excludedPromptTypes: [0])
+    self.relationship = Relationship(id: "1", partnerId: "2", communicationLevel: 0, relationshipStartDate: Date.now.description, excludedPromptTypes: [2])
   }
 
   @MainActor
   func getPrompts(_ urlString: String) async {
     guard let prompts = await networkClient.fetchPrompts(urlString) else {
-      return
-    }
-    let vm = prompts.compactMap { prompt in
-      PromptViewModel(prompt: prompt)
-    }
-    self.prompts = vm.filter { prompt in
-      !excludedPromptTypes.contains(prompt.type)
-    }
-  }
-
-  // Temp method for reading from local file
-  @MainActor
-  func getPrompts(_ url: URL) async {
-    guard let prompts = await networkClient.fetchPrompts(url) else {
       return
     }
     let vm = prompts.compactMap { prompt in

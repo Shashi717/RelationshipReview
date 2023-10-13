@@ -22,7 +22,7 @@ struct ContentView: View {
             return
           }
           Task {
-            await promptsViewModel.getPrompts(URL(fileURLWithPath: path))
+            await promptsViewModel.getPrompts(path)
           }
         }, label: {
           Text("Retry")
@@ -34,7 +34,7 @@ struct ContentView: View {
         guard let path = Bundle.main.path(forResource: "sample_prompts", ofType: "json") else {
           return
         }
-        await promptsViewModel.getPrompts(URL(fileURLWithPath: path))
+        await promptsViewModel.getPrompts(path)
       }
     }
   }

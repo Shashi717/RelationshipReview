@@ -11,9 +11,14 @@ struct NetworkService {
 
   func fetchData(_ url: URL) async -> Data? {
     guard let (data,_) = try? await URLSession.shared.data(from: url) else {
-      return nil
+      return fetchDataFromLocalFile(url)
     }
     return data
+  }
+
+  func fetchDataFromLocalFile(_ url: URL) -> Data? {
+    let url = URL(fileURLWithPath: url.absoluteString)
+    return try? Data(contentsOf: url)
   }
 }
 
@@ -21,14 +26,6 @@ struct NetworkClient {
   func fetchPrompts(_ urlString: String) async -> [Prompt]? {
     guard let url = URL(string: urlString),
           let data = await NetworkService().fetchData(url) else {
-      return nil
-    }
-    return try? JSONDecoder().decode([Prompt].self, from: data)
-  }
-
-  // temp method for reading from local file
-  func fetchPrompts(_ url: URL) -> [Prompt]? {
-    guard let data = try? Data(contentsOf: url) else {
       return nil
     }
     return try? JSONDecoder().decode([Prompt].self, from: data)
