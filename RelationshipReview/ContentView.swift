@@ -10,8 +10,6 @@ import SwiftUI
 
 struct ContentView: View {
   @ObservedObject var promptsViewModel: PrompstViewModel
-  @State var currentIndex = 0
-  @State var presentAlert = false
   
   var body: some View {
     VStack {
