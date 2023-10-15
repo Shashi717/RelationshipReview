@@ -9,9 +9,10 @@ import Foundation
 import SwiftUI
 
 struct PromptsView: View {
-  @ObservedObject var promptsViewModel: PrompstViewModel
+  var promptsViewModel: PrompstViewModel
   @State var currentIndex = 0
   @State var presentAlert = false
+  @State var showReviewView = false
 
   var body: some View {
     VStack {
@@ -39,6 +40,7 @@ struct PromptsView: View {
             if promptsViewModel.isCompleted {
               presentAlert = false
               promptsViewModel.submitAnswers()
+              showReviewView = true
             } else {
               presentAlert = true
             }

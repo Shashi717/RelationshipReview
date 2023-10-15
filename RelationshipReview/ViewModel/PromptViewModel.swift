@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum PromptType {
   case general
@@ -15,9 +16,9 @@ enum PromptType {
 }
 
 // This VM represents each question that needs answering
-class PromptViewModel: ObservableObject {
+@Observable class PromptViewModel {
   private let prompt: Prompt
-  @Published var answer: String
+  var answer: String
   var promptId: String {
     prompt.id
   }

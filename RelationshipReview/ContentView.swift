@@ -9,12 +9,16 @@ import Foundation
 import SwiftUI
 
 struct ContentView: View {
-  @ObservedObject var promptsViewModel: PrompstViewModel
-  
+  var promptsViewModel: PrompstViewModel
+  var reviewViewModel: ReviewViewModel? = nil
+  @State var showReviewView = false
+
   var body: some View {
     VStack {
-      if let prompts = promptsViewModel.prompts, !prompts.isEmpty {
-        PromptsView(promptsViewModel: promptsViewModel)
+      if showReviewView {
+//        CheckInView(checkInViewModel: <#T##CheckInViewModel#>)
+      } else if let prompts = promptsViewModel.prompts, !prompts.isEmpty {
+        PromptsView(promptsViewModel: promptsViewModel, showReviewView: showReviewView)
       } else {
         // Temp for debugging
         Button(action: {

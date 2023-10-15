@@ -30,4 +30,14 @@ struct NetworkClient {
     }
     return try? JSONDecoder().decode([Prompt].self, from: data)
   }
+
+  func submitPrompts(_ urlString: String, _ answers: AnswersToSubmit) -> Bool {
+    guard let url = URL(string: urlString) else {
+      return false
+    }
+    // hook up backend later
+    let data = try? JSONEncoder().encode(answers)
+    UserDefaults.standard.setValue(data, forKey: "Submitted")
+    return true
+  }
 }

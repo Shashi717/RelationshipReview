@@ -30,6 +30,8 @@
 		9B3D9DB92AD9903500BA8BD3 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DB82AD9903500BA8BD3 /* Prompt.swift */; };
 		9B3D9DBB2AD9909200BA8BD3 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DBA2AD9909200BA8BD3 /* Review.swift */; };
 		9B3D9DBD2AD9997200BA8BD3 /* PromptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DBC2AD9997200BA8BD3 /* PromptsView.swift */; };
+		9BB891F82ADC442500B980C7 /* AnswersToSubmit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB891F72ADC442500B980C7 /* AnswersToSubmit.swift */; };
+		9BB891FA2ADC479100B980C7 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB891F92ADC479100B980C7 /* ReviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		9B3D9DB82AD9903500BA8BD3 /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
 		9B3D9DBA2AD9909200BA8BD3 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		9B3D9DBC2AD9997200BA8BD3 /* PromptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptsView.swift; sourceTree = "<group>"; };
+		9BB891F72ADC442500B980C7 /* AnswersToSubmit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersToSubmit.swift; sourceTree = "<group>"; };
+		9BB891F92ADC479100B980C7 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 				9B3D9D712AD4678900BA8BD3 /* RelationshipReviewApp.swift */,
 				9B3D9D732AD4678900BA8BD3 /* ContentView.swift */,
 				9B3D9DBC2AD9997200BA8BD3 /* PromptsView.swift */,
+				9BB891F92ADC479100B980C7 /* ReviewView.swift */,
 				9B3D9DAB2AD49B5E00BA8BD3 /* PromptView.swift */,
 				9B3D9DA92AD496CD00BA8BD3 /* CheckInView.swift */,
 				9B3D9DB42AD5B82E00BA8BD3 /* NetworkService.swift */,
@@ -172,6 +177,7 @@
 				9B3D9D9D2AD46B4E00BA8BD3 /* User.swift */,
 				9B3D9D9F2AD46B7F00BA8BD3 /* Relationship.swift */,
 				9B3D9DB82AD9903500BA8BD3 /* Prompt.swift */,
+				9BB891F72ADC442500B980C7 /* AnswersToSubmit.swift */,
 				9B3D9DA12AD46D1A00BA8BD3 /* CheckIn.swift */,
 				9B3D9DBA2AD9909200BA8BD3 /* Review.swift */,
 			);
@@ -181,10 +187,10 @@
 		9B3D9DA82AD493D700BA8BD3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				9B3D9DA42AD48C2100BA8BD3 /* ReviewViewModel.swift */,
-				9B3D9DA62AD493CC00BA8BD3 /* CheckInViewModel.swift */,
 				9B3D9DAF2AD5A0D500BA8BD3 /* PromptsViewModel.swift */,
 				9B3D9DAD2AD4AB1900BA8BD3 /* PromptViewModel.swift */,
+				9B3D9DA42AD48C2100BA8BD3 /* ReviewViewModel.swift */,
+				9B3D9DA62AD493CC00BA8BD3 /* CheckInViewModel.swift */,
 				9B3D9D9B2AD467C100BA8BD3 /* CommunicationLevel.swift */,
 			);
 			path = ViewModel;
@@ -332,6 +338,7 @@
 			files = (
 				9B3D9DA02AD46B7F00BA8BD3 /* Relationship.swift in Sources */,
 				9B3D9DA22AD46D1A00BA8BD3 /* CheckIn.swift in Sources */,
+				9BB891FA2ADC479100B980C7 /* ReviewView.swift in Sources */,
 				9B3D9DB02AD5A0D500BA8BD3 /* PromptsViewModel.swift in Sources */,
 				9B3D9DB22AD5ACCF00BA8BD3 /* MockData.swift in Sources */,
 				9B3D9DB92AD9903500BA8BD3 /* Prompt.swift in Sources */,
@@ -340,6 +347,7 @@
 				9B3D9DB52AD5B82E00BA8BD3 /* NetworkService.swift in Sources */,
 				9B3D9D9E2AD46B4E00BA8BD3 /* User.swift in Sources */,
 				9B3D9DBB2AD9909200BA8BD3 /* Review.swift in Sources */,
+				9BB891F82ADC442500B980C7 /* AnswersToSubmit.swift in Sources */,
 				9B3D9D742AD4678900BA8BD3 /* ContentView.swift in Sources */,
 				9B3D9DBD2AD9997200BA8BD3 /* PromptsView.swift in Sources */,
 				9B3D9DAE2AD4AB1900BA8BD3 /* PromptViewModel.swift in Sources */,

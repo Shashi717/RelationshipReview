@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 // This VM represents a set of questions to be presented to the user
-class PrompstViewModel: ObservableObject {
+@Observable class PrompstViewModel {
   private let networkClient: NetworkClient
   private let relationship: Relationship
-  @Published var prompts: [PromptViewModel]?
+  var prompts: [PromptViewModel]?
 
   var isCompleted: Bool {
     if let prompts = prompts {
@@ -65,13 +66,15 @@ class PrompstViewModel: ObservableObject {
     }
     if isCompleted {
       let answers: [[String:String]] = prompts.map { [$0.promptId : $0.answer] }
-      print("completed")
+      if saveAnswers(answers) {
+        print("completed")
+      }
     }
   }
-}
 
-struct AnswersToSubmit {
-  var userId: String
-  var partnerId: String
-  var answers: [[String:String]]
+  func saveAnswers(_ answers: [[String:String]]) -> Bool {
+    let urlString = "https://www.google.com/"
+    let answersToSubmit = AnswersToSubmit(userId: "0", partnerId: "1", date: Date.now.ISO8601Format(), answers: answers)
+    return networkClient.submitPrompts(urlString, answersToSubmit)
+  }
 }

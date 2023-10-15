@@ -8,7 +8,7 @@
 import Foundation
 
 // Represents set of checkins
-class ReviewViewModel {
+@Observable class ReviewViewModel {
   private let relationship: Relationship
   private let review: Review
 
@@ -24,6 +24,14 @@ class ReviewViewModel {
     review.answers.compactMap { checkIn in
       CheckInViewModel(checkIn: checkIn)
     }
+  }
+
+  func getReview() {
+    guard let data = UserDefaults.standard.object(forKey: "Submitted") as? Data,
+    let review = try? JSONDecoder().decode(AnswersToSubmit.self, from: data) else {
+      return
+    }
+
   }
 
   init(relationship: Relationship, review: Review) {
