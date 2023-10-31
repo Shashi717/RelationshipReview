@@ -32,7 +32,12 @@ struct ReviewView: View {
             .disabled(currentIndex == answers.count - 1)
 
           Button(action: {
-            // promptsViewModel.submitAnswers()
+            guard let id = reviewViewModel.answers?[currentIndex].id else {
+              return
+            }
+            Task {
+              await reviewViewModel.markAsDiscussion(id)
+            }
           }, label: {
             Text("Discuss")
           }).buttonStyle(.bordered)

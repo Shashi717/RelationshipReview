@@ -13,7 +13,9 @@ struct CheckInView: View {
     VStack {
       Text(checkInViewModel.question)
       AnswerView(answer: checkInViewModel.answer, profileImage: checkInViewModel.profileImage)
+        .frame(alignment: .leading)
       AnswerView(answer: checkInViewModel.partnerAnswer, profileImage: checkInViewModel.partnerProfileImage)
+        .frame(alignment: .leading)
       if checkInViewModel.markedAsDiscussion {
         Image(systemName: "flag.circle")
             .imageScale(.large)

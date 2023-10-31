@@ -16,5 +16,5 @@ struct MockData {
   let mockPromptViewModel1 = PromptViewModel(prompt: Prompt(id: "1", type: 0, description: "What's your rating 1?", communicationLevel: 0))
   let mockPromptViewModel2 = PromptViewModel(prompt: Prompt(id: "2", type: 0, description: "What's your rating 2?", communicationLevel: 0))
   let mockPromptViewModel3 = PromptViewModel(prompt: Prompt(id: "3", type: 0, description: "What's your rating 3?", communicationLevel: 0))
-  let mockPromptsViewModel = PrompstViewModel(networkClient: NetworkClient(), prompts: [PromptViewModel(prompt: Prompt(id: "1", type: 0, description: "What's your rating 1?", communicationLevel: 0)), PromptViewModel(prompt: Prompt(id: "2", type: 0, description: "What's your rating 2?", communicationLevel: 0)), PromptViewModel(prompt: Prompt(id: "3", type: 0, description: "What's your rating 3?", communicationLevel: 0))])
+  let mockPromptsViewModel = PromptsViewModel(networkClient: NetworkClient(), prompts: [PromptViewModel(prompt: Prompt(id: "1", type: 0, description: "What's your rating 1?", communicationLevel: 0)), PromptViewModel(prompt: Prompt(id: "2", type: 0, description: "What's your rating 2?", communicationLevel: 0)), PromptViewModel(prompt: Prompt(id: "3", type: 0, description: "What's your rating 3?", communicationLevel: 0))])
 }

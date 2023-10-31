@@ -48,4 +48,12 @@ struct NetworkClient {
     }
     return try? JSONDecoder().decode(Review.self, from: data)
   }
+
+  func markAsDiscussion(_ urlString: String, _ id: String) async -> Bool {
+    guard let url = URL(string: urlString) else {
+      return false
+    }
+    // TODO: Submit to backend
+    return true
+  }
 }

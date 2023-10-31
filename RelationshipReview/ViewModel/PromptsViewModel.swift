@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 // This VM represents a set of questions to be presented to the user
-@Observable class PrompstViewModel {
+@Observable class PromptsViewModel {
   private let networkClient: NetworkClient
   private let relationship: Relationship
   var prompts: [PromptViewModel]?

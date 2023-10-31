@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ContentView: View {
-  var promptsViewModel: PrompstViewModel
+  var promptsViewModel: PromptsViewModel
   var reviewViewModel: ReviewViewModel
   @State var showReviewView = false
 

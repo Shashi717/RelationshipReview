@@ -48,6 +48,10 @@ import Foundation
     }
   }
 
+  func markAsDiscussion(_ id: String) async -> Bool {
+    return await networkClient.markAsDiscussion("", id)
+  }
+
   init(networkClient: NetworkClient, review: Review? = nil) {
     self.networkClient = networkClient
     // temp hard coded data

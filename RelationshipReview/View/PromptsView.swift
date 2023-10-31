@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct PromptsView: View {
-  var promptsViewModel: PrompstViewModel
+  var promptsViewModel: PromptsViewModel
   @State var currentIndex = 0
   @Binding var showReviewView: Bool
   
