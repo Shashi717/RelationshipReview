@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // Represents set of checkins
 @Observable class ReviewViewModel {
@@ -33,12 +34,19 @@ import Foundation
     }
   }
 
+  var profileImage: UIImage?
+  var partnerProfileImage: UIImage?
+
   @MainActor
   func getReview(_ urlString: String) async {
     guard let review = await networkClient.fetchReview(urlString) else {
       return
     }
     self.review = review
+    let urlString = "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    let manURLString = "https://media.istockphoto.com/id/1364917563/photo/businessman-smiling-with-arms-crossed-on-white-background.jpg?s=612x612&w=0&k=20&c=NtM9Wbs1DBiGaiowsxJY6wNCnLf0POa65rYEwnZymrM="
+    self.profileImage = await networkClient.fetchImage(urlString)
+    self.partnerProfileImage = await networkClient.fetchImage(manURLString)
   }
 
   func getReview() {

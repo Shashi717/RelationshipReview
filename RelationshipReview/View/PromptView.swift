@@ -11,7 +11,7 @@ import SwiftUI
 struct PromptView: View {
   @Bindable var promptViewModel: PromptViewModel
   var body: some View {
-    VStack {
+    VStack(alignment: .leading) {
       Text(promptViewModel.description)
       TextField("Enter your answer here", text: $promptViewModel.answer, axis: .vertical)
         .textFieldStyle(.roundedBorder)

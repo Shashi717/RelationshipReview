@@ -14,7 +14,8 @@ struct ReviewView: View {
     VStack {
       if let answers = reviewViewModel.answers,
          !answers.isEmpty  {
-        CheckInView(checkInViewModel: answers[currentIndex]).padding(EdgeInsets(top: 32, leading: 32, bottom: 32, trailing: 32))
+        CheckInView(checkInViewModel: answers[currentIndex], profileImage: reviewViewModel.profileImage, partnerProfileImage: reviewViewModel.partnerProfileImage)
+          .padding(EdgeInsets(top: 32, leading: 32, bottom: 32, trailing: 32))
         HStack {
           // make sure index doesn't go out of bounds
           Button(action: {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct NetworkService {
 
@@ -23,9 +24,11 @@ struct NetworkService {
 }
 
 struct NetworkClient {
+  let networkService = NetworkService()
+
   func fetchPrompts(_ urlString: String) async -> [Prompt]? {
     guard let url = URL(string: urlString),
-          let data = await NetworkService().fetchData(url) else {
+          let data = await networkService.fetchData(url) else {
       return nil
     }
     return try? JSONDecoder().decode([Prompt].self, from: data)
@@ -35,7 +38,7 @@ struct NetworkClient {
     guard let url = URL(string: urlString) else {
       return false
     }
-    // hook up backend later
+    // TODO: Submit to backend
     let data = try? JSONEncoder().encode(answers)
     UserDefaults.standard.setValue(data, forKey: "Submitted")
     return true
@@ -43,7 +46,7 @@ struct NetworkClient {
 
   func fetchReview(_ urlString: String) async -> Review? {
     guard let url = URL(string: urlString),
-          let data = await NetworkService().fetchData(url) else {
+          let data = await networkService.fetchData(url) else {
       return nil
     }
     return try? JSONDecoder().decode(Review.self, from: data)
@@ -55,5 +58,13 @@ struct NetworkClient {
     }
     // TODO: Submit to backend
     return true
+  }
+
+  func fetchImage(_ urlString: String) async -> UIImage? {
+    guard let url = URL(string: urlString),
+          let data = await networkService.fetchData(url) else {
+      return nil
+    }
+    return UIImage(data: data)
   }
 }

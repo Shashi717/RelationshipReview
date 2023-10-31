@@ -29,12 +29,6 @@ class CheckInViewModel {
   var markedAsDiscussion: Bool {
     checkIn.markedAsDiscussion
   }
-  var profileImage: UIImage? {
-    return nil
-  }
-  var partnerProfileImage: UIImage? {
-    return nil
-  }
 
   private func getPrompt(_ id: String) -> Prompt? {
     return nil
