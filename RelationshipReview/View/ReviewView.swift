@@ -34,7 +34,7 @@ struct ReviewView: View {
           Button(action: {
             // promptsViewModel.submitAnswers()
           }, label: {
-            Text("Done")
+            Text("Discuss")
           }).buttonStyle(.bordered)
         }
       }
