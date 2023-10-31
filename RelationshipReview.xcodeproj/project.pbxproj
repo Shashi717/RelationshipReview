@@ -109,6 +109,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B352DB12AF1524F0032ED34 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				9B3D9DB42AD5B82E00BA8BD3 /* NetworkService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		9B352DB22AF152680032ED34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B3D9DBC2AD9997200BA8BD3 /* PromptsView.swift */,
+				9BB891F92ADC479100B980C7 /* ReviewView.swift */,
+				9B3D9DAB2AD49B5E00BA8BD3 /* PromptView.swift */,
+				9B3D9DA92AD496CD00BA8BD3 /* CheckInView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9B3D9D652AD4678900BA8BD3 = {
 			isa = PBXGroup;
 			children = (
@@ -134,14 +153,11 @@
 			children = (
 				9B3D9D712AD4678900BA8BD3 /* RelationshipReviewApp.swift */,
 				9B3D9D732AD4678900BA8BD3 /* ContentView.swift */,
-				9B3D9DBC2AD9997200BA8BD3 /* PromptsView.swift */,
-				9BB891F92ADC479100B980C7 /* ReviewView.swift */,
-				9B3D9DAB2AD49B5E00BA8BD3 /* PromptView.swift */,
-				9B3D9DA92AD496CD00BA8BD3 /* CheckInView.swift */,
-				9B3D9DB42AD5B82E00BA8BD3 /* NetworkService.swift */,
-				9B3D9DB32AD5ACE700BA8BD3 /* Mock */,
+				9B352DB22AF152680032ED34 /* View */,
+				9B352DB12AF1524F0032ED34 /* Networking */,
 				9B3D9DA82AD493D700BA8BD3 /* ViewModel */,
 				9B3D9DA32AD4787B00BA8BD3 /* Model */,
+				9B3D9DB32AD5ACE700BA8BD3 /* Mock */,
 				9B3D9D752AD4678B00BA8BD3 /* Assets.xcassets */,
 				9B3D9D772AD4678B00BA8BD3 /* Preview Content */,
 			);
