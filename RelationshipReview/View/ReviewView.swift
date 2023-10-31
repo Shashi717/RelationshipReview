@@ -18,29 +18,21 @@ struct ReviewView: View {
         HStack {
           // make sure index doesn't go out of bounds
           Button(action: {
-            if currentIndex > 0 {
-              currentIndex -= 1
-            }
+            currentIndex -= 1
           }, label: {
             Text("Previous")
           }).buttonStyle(.bordered)
+            .disabled(currentIndex == 0)
 
           Button(action: {
-            if currentIndex < answers.count - 1 {
-              currentIndex += 1
-            }
+            currentIndex += 1
           }, label: {
             Text("Next")
           }).buttonStyle(.bordered)
+            .disabled(currentIndex == answers.count - 1)
 
           Button(action: {
-  //          if promptsViewModel.isCompleted {
-  //            presentAlert = false
-  //            promptsViewModel.submitAnswers()
-  //            showReviewView = true
-  //          } else {
-  //            presentAlert = true
-  //          }
+            // promptsViewModel.submitAnswers()
           }, label: {
             Text("Done")
           }).buttonStyle(.bordered)
