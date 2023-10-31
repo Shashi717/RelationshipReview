@@ -10,15 +10,15 @@ import SwiftUI
 
 struct ContentView: View {
   var promptsViewModel: PrompstViewModel
-  var reviewViewModel: ReviewViewModel? = nil
+  var reviewViewModel: ReviewViewModel
   @State var showReviewView = false
 
   var body: some View {
     VStack {
       if showReviewView {
-//        CheckInView(checkInViewModel: <#T##CheckInViewModel#>)
+        ReviewView(reviewViewModel: reviewViewModel)
       } else if let prompts = promptsViewModel.prompts, !prompts.isEmpty {
-        PromptsView(promptsViewModel: promptsViewModel, showReviewView: showReviewView)
+        PromptsView(promptsViewModel: promptsViewModel, showReviewView: $showReviewView)
       } else {
         // Temp for debugging
         Button(action: {
@@ -35,15 +35,17 @@ struct ContentView: View {
     }
     .onAppear {
       Task.init() {
-        guard let path = Bundle.main.path(forResource: "sample_prompts", ofType: "json") else {
+        guard let promptsPath = Bundle.main.path(forResource: "sample_prompts", ofType: "json"),
+                let reviewPath = Bundle.main.path(forResource: "sample_review", ofType: "json") else {
           return
         }
-        await promptsViewModel.getPrompts(path)
+        await promptsViewModel.getPrompts(promptsPath)
+        await reviewViewModel.getReview(reviewPath)
       }
     }
   }
 }
 
 #Preview {
-  ContentView(promptsViewModel: MockData().mockPromptsViewModel)
+  ContentView(promptsViewModel: MockData().mockPromptsViewModel, reviewViewModel: MockData().mockReviewViewModel)
 }

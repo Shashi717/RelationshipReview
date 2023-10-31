@@ -1,0 +1,43 @@
+{
+  "id": "56",
+  "date": "1698681926",
+  "answers":
+  [
+    {
+      "id": "1",
+      "prompt_id": "1",
+      "answer": "Good",
+      "partner_answer": "What went well in our relationship this week?",
+      "marked_as_discussion": true
+    },
+    {
+      "id": "2",
+      "prompt_id": "2",
+      "answer": "Good",
+      "partner_answer": "How well supported by me did you feel this week?",
+      "marked_as_discussion": false
+    },
+    {
+      "id": "2",
+      "prompt_id": "2",
+      "answer": "Good",
+      "partner_answer": "What is something I did that made you feel loved, appreciated or respected this week?",
+      "marked_as_discussion": false
+    },
+    {
+      "id": "2",
+      "prompt_id": "2",
+      "answer": "Good",
+      "partner_answer": "What are your main stressors at the moment? How can I help?",
+      "marked_as_discussion": false
+    },
+    {
+      "id": "2",
+      "prompt_id": "2",
+      "answer": "Good",
+      "partner_answer": "What went not so well in our relationship last week?",
+      "marked_as_discussion": false
+    }
+  ]
+}
+

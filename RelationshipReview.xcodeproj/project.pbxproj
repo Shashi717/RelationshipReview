@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B352DB02AF00B380032ED34 /* sample_review.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B352DAF2AF00B380032ED34 /* sample_review.json */; };
 		9B3D9D722AD4678900BA8BD3 /* RelationshipReviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D712AD4678900BA8BD3 /* RelationshipReviewApp.swift */; };
 		9B3D9D742AD4678900BA8BD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D732AD4678900BA8BD3 /* ContentView.swift */; };
 		9B3D9D762AD4678B00BA8BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B3D9D752AD4678B00BA8BD3 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B352DAF2AF00B380032ED34 /* sample_review.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample_review.json; sourceTree = "<group>"; };
 		9B3D9D6E2AD4678900BA8BD3 /* RelationshipReview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelationshipReview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3D9D712AD4678900BA8BD3 /* RelationshipReviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipReviewApp.swift; sourceTree = "<group>"; };
 		9B3D9D732AD4678900BA8BD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				9B3D9DB12AD5ACCF00BA8BD3 /* MockData.swift */,
 				9B3D9DB62AD5BE5C00BA8BD3 /* sample_prompts.json */,
+				9B352DAF2AF00B380032ED34 /* sample_review.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B3D9D792AD4678B00BA8BD3 /* Preview Assets.xcassets in Resources */,
+				9B352DB02AF00B380032ED34 /* sample_review.json in Resources */,
 				9B3D9D762AD4678B00BA8BD3 /* Assets.xcassets in Resources */,
 				9B3D9DB72AD5BE5C00BA8BD3 /* sample_prompts.json in Resources */,
 			);

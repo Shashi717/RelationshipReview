@@ -12,7 +12,7 @@ struct PromptsView: View {
   var promptsViewModel: PrompstViewModel
   @State var currentIndex = 0
   @State var presentAlert = false
-  @State var showReviewView = false
+  @Binding var showReviewView: Bool
 
   var body: some View {
     VStack {

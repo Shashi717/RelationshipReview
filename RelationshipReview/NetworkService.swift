@@ -40,4 +40,12 @@ struct NetworkClient {
     UserDefaults.standard.setValue(data, forKey: "Submitted")
     return true
   }
+
+  func fetchReview(_ urlString: String) async -> Review? {
+    guard let url = URL(string: urlString),
+          let data = await NetworkService().fetchData(url) else {
+      return nil
+    }
+    return try? JSONDecoder().decode(Review.self, from: data)
+  }
 }

@@ -11,11 +11,10 @@ import SwiftUI
 struct RelationshipReviewApp: App {
     var body: some Scene {
         WindowGroup {
-          let promptsViewModel = PrompstViewModel(networkClient: NetworkClient())
-          ContentView(promptsViewModel: promptsViewModel)
-
-//          Mock View Model for visualizing
-//          ContentView(promptsViewModel: MockData().mockPromptsViewModel)
+          let networkClient = NetworkClient()
+          let promptsViewModel = PrompstViewModel(networkClient: networkClient)
+          let reviewViewModel = ReviewViewModel(networkClient: networkClient)
+          ContentView(promptsViewModel: promptsViewModel, reviewViewModel: reviewViewModel)
         }
     }
 }
