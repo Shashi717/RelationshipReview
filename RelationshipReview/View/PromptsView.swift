@@ -45,3 +45,7 @@ struct PromptsView: View {
     }
   }
 }
+
+#Preview {
+  PromptsView(promptsViewModel: MockData().mockPromptsViewModel, showReviewView: .constant(false))
+}

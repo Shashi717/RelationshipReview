@@ -18,12 +18,19 @@ import UIKit
     review?.id ?? "0"
   }
   var date: Date? {
-    guard let review = review else {
+    guard let review = review,
+            let date = Double(review.date) else {
       return nil
     }
+    return Date(timeIntervalSince1970: date)
+  }
+  var dateString: String {
+    guard let date = date else {
+      return ""
+    }
     let formatter = DateFormatter()
-    formatter.dateFormat = "MM/DD/YYYY"
-    return formatter.date(from: review.date)
+    formatter.dateFormat = "MM/dd/YYYY"
+    return formatter.string(from: date)
   }
   var answers: [CheckInViewModel]? {
     guard let review = review else {
@@ -67,4 +74,3 @@ import UIKit
     self.review = review
   }
 }
-

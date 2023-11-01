@@ -22,3 +22,7 @@ struct PromptView: View {
   }
 }
 
+#Preview {
+  PromptView(promptViewModel: MockData().mockPromptViewModel1)
+}
+

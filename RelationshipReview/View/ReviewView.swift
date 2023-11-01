@@ -14,6 +14,7 @@ struct ReviewView: View {
     VStack {
       if let answers = reviewViewModel.answers,
          !answers.isEmpty  {
+        Text("Date: \(reviewViewModel.dateString)")
         CheckInView(checkInViewModel: answers[currentIndex], profileImage: reviewViewModel.profileImage, partnerProfileImage: reviewViewModel.partnerProfileImage)
           .padding(EdgeInsets(top: 32, leading: 32, bottom: 32, trailing: 32))
         HStack {
@@ -46,4 +47,8 @@ struct ReviewView: View {
       }
     }
   }
+}
+
+#Preview {
+  ReviewView(reviewViewModel: MockData().mockReviewViewModel)
 }

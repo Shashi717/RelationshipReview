@@ -30,19 +30,6 @@ struct CheckInView: View {
   }
 }
 
-struct AnswerView: View {
-  let answer: String
-  let profileImage: UIImage?
-  var body: some View {
-    HStack {
-      if let image = profileImage {
-        Image(uiImage: image)
-          .resizable()
-          .scaledToFit()
-          .clipShape(.circle)
-          .frame(width: 50, height: 50)
-      }
-      Text(answer)
-    }
-  }
+#Preview {
+  CheckInView(checkInViewModel: MockData().mockCheckInViewModel, profileImage: nil, partnerProfileImage: nil)
 }
