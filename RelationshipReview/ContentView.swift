@@ -5,47 +5,37 @@
 //  Created by Shashi Liyanage on 10/9/23.
 //
 
+import FirebaseAuth
 import Foundation
 import SwiftUI
 
 struct ContentView: View {
-  var promptsViewModel: PromptsViewModel
-  var reviewViewModel: ReviewViewModel
-  @State var showReviewView = false
-
-  var body: some View {
-    VStack {
-      if showReviewView {
-        ReviewView(reviewViewModel: reviewViewModel)
-      } else if let prompts = promptsViewModel.prompts, !prompts.isEmpty {
-        PromptsView(promptsViewModel: promptsViewModel, showReviewView: $showReviewView)
-      } else {
-        // Temp for debugging
-        Button(action: {
-          guard let path = Bundle.main.path(forResource: "sample_prompts", ofType: "json") else {
-            return
-          }
-          Task {
-            await promptsViewModel.getPrompts(path)
-          }
-        }, label: {
-          Text("Retry")
-        })
-      }
-    }
-    .onAppear {
-      Task.init() {
-        guard let promptsPath = Bundle.main.path(forResource: "sample_prompts", ofType: "json"),
-                let reviewPath = Bundle.main.path(forResource: "sample_review", ofType: "json") else {
-          return
+    var promptsViewModel: PromptsViewModel
+    var reviewViewModel: ReviewViewModel
+    @State var isLoggedIn = NetworkClient().getCurrentUser() != nil
+    var body: some View {
+        NavigationStack {
+            if isLoggedIn {
+                MainView(promptsViewModel: promptsViewModel, reviewViewModel: reviewViewModel)
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            NavigationLink (destination: SettingsView(isLoggedIn: $isLoggedIn)) {
+                                Image(systemName: "gearshape")
+                            }
+                        }
+                        ToolbarItem(placement: .topBarTrailing) {
+                            NavigationLink (destination: PastReviewsView()) {
+                                Image(systemName: "list.bullet")
+                            }
+                        }
+                    }
+            } else {
+                OnboardingView(onboardingViewModel: OnboardingViewModel(), isLoggedIn: $isLoggedIn)
+            }
         }
-        await promptsViewModel.getPrompts(promptsPath)
-        await reviewViewModel.getReview(reviewPath)
-      }
     }
-  }
 }
 
 #Preview {
-  ContentView(promptsViewModel: MockData().mockPromptsViewModel, reviewViewModel: MockData().mockReviewViewModel)
+    ContentView(promptsViewModel: MockData().mockPromptsViewModel, reviewViewModel: MockData().mockReviewViewModel)
 }

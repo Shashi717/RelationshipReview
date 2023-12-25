@@ -8,9 +8,9 @@
 import Foundation
 
 struct Relationship {
-  var id: String
-  var partnerId: String
-  var communicationLevel: Int
-  var relationshipStartDate: String
-  var excludedPromptTypes: Set<Int>
+    var id: String
+    var partnerId: String
+    var communicationLevel: Int
+    var relationshipStartDate: String
+    var excludedPromptTypes: Set<Int>
 }

@@ -6,7 +6,7 @@
 //
 
 struct Review: Codable {
-  var id: String
-  var date: String
-  var answers: [CheckIn]
+    var id: String
+    var date: String
+    var answers: [CheckIn]
 }
