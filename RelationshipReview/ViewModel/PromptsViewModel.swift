@@ -35,7 +35,7 @@ import SwiftUI
             case 1:
                 return .intimacy
             case 2:
-                return .marriage
+                return .future
             default:
                 return .unkown
             }
@@ -47,7 +47,7 @@ import SwiftUI
         self.prompts = prompts
         self.user = networkClient.getCurrentUser()
         // temp hard coded data
-        self.relationship = Relationship(id: "1", partnerId: "2", communicationLevel: 0, relationshipStartDate: Date.now.description, excludedPromptTypes: [2])
+        self.relationship = Relationship(id: "1", partnerId: "2", communicationLevel: 0, relationshipStartDate: Date.now.description, excludedPromptTypes: [])
     }
     
     @MainActor

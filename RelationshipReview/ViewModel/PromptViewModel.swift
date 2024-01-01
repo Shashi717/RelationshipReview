@@ -11,7 +11,7 @@ import SwiftUI
 enum PromptType {
     case general
     case intimacy
-    case marriage
+    case future
     case unkown
 }
 
@@ -31,13 +31,13 @@ enum PromptType {
     var type: PromptType {
         switch prompt.type {
         case 0:
-            return PromptType.general
+            return .general
         case 1:
-            return PromptType.intimacy
+            return .intimacy
         case 2:
-            return PromptType.marriage
+            return .future
         default:
-            return PromptType.unkown
+            return .unkown
         }
     }
     

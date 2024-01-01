@@ -70,7 +70,7 @@ import UIKit
     init(networkClient: NetworkClient, review: Review? = nil) {
         self.networkClient = networkClient
         // temp hard coded data
-        self.relationship = Relationship(id: "1", partnerId: "2", communicationLevel: 0, relationshipStartDate: Date.now.description, excludedPromptTypes: [2])
+        self.relationship = Relationship(id: "1", partnerId: "2", communicationLevel: 0, relationshipStartDate: Date.now.description, excludedPromptTypes: [])
         self.review = review
     }
 }

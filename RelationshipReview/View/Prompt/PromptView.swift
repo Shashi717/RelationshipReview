@@ -18,7 +18,7 @@ struct PromptView: View {
                 .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
         }
         .padding(EdgeInsets(top: 32, leading: 32, bottom: 32, trailing: 32))
-        .background(Color.teal.opacity(0.3))
+        .background(Gradient.backgroundColor(promptViewModel.type))
         .clipShape(.rect(cornerSize: CGSize(width: 15, height: 15)))
     }
 }
