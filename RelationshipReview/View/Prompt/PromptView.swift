@@ -13,6 +13,7 @@ struct PromptView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(promptViewModel.description)
+                .font(.title2)
             TextField("Enter your answer here", text: $promptViewModel.answer, axis: .vertical)
                 .textFieldStyle(.roundedBorder)
                 .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))

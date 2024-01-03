@@ -9,37 +9,28 @@ import Foundation
 
 @Observable class UserInfoViewModel {
     private let networkClient = NetworkClient()
-    private var userInfo: UserInfo?
+
+    private var userInfo: UserInfo? {
+        didSet {
+            guard let userInfo = userInfo else {
+                return
+            }
+            firstName = userInfo.firstName
+            lastName = userInfo.lastName
+            communicationLevel = CommunicationLevel(rawValue: userInfo.communicationLevel) ?? .beginner
+            partnerEmail = userInfo.partnerEmail
+        }
+    }
     var email: String? {
         networkClient.getCurrentUser()?.email
     }
     var userId: String? {
         networkClient.getCurrentUser()?.uid
     }
-    var firstName: String {
-        get {
-            userInfo?.firstName ?? ""
-        }
-        set { }
-    }
-    var lastName: String {
-        get {
-            userInfo?.lastName ?? ""
-        }
-        set { }
-    }
-    var communicationLevel: CommunicationLevel {
-        get {
-            CommunicationLevel(rawValue: userInfo?.communicationLevel ?? 0) ?? .beginner
-        }
-        set { }
-    }
-    var partnerEmail: String {
-        get {
-            userInfo?.partnerEmail ?? ""
-        }
-        set { }
-    }
+    var firstName: String = ""
+    var lastName: String = ""
+    var communicationLevel: CommunicationLevel = .beginner
+    var partnerEmail: String = ""
 
     init() { }
 

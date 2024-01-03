@@ -12,6 +12,7 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             EditUserInfoView()
+                .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {

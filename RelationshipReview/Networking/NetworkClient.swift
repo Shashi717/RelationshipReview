@@ -59,7 +59,7 @@ class NetworkClient {
     }
 
     func fetchPastReviews(_ userId: String) async throws -> [Review] {
-        let collectionReference = firestore.collection("reviews/\(userId)")
+        let collectionReference = firestore.collection("reviews")
         let querySnapshot = try await collectionReference.getDocuments()
         let reviews = try querySnapshot.documents.compactMap { document -> Review? in
             return try document.data(as: Review.self)
@@ -87,7 +87,7 @@ extension NetworkClient {
 
     func updateUserInfo(_ email: String, _ userInfo: [String: Any]) async throws {
         let collectionReference = firestore.collection("userInfo").document(email)
-        try await collectionReference.setData(userInfo, merge: true)
+        try await collectionReference.setData(userInfo)
     }
 }
 
