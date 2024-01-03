@@ -11,9 +11,11 @@ import Foundation
     private let networkClient = NetworkClient()
     private var userInfo: UserInfo?
     var email: String? {
-        userInfo?.id
+        networkClient.getCurrentUser()?.email
     }
-    var userId: String?
+    var userId: String? {
+        networkClient.getCurrentUser()?.uid
+    }
     var firstName: String {
         get {
             userInfo?.firstName ?? ""
@@ -39,9 +41,7 @@ import Foundation
         set { }
     }
 
-    init() {
-        userId = networkClient.getCurrentUser()?.uid
-    }
+    init() { }
 
     func loadUserInfo() async {
         guard let email = email else {
@@ -52,7 +52,6 @@ import Foundation
         } catch {
             print(error)
         }
-
     }
 
     func updateUserInfo() async {
