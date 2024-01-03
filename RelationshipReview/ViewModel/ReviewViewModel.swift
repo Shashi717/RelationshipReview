@@ -36,8 +36,8 @@ import UIKit
         guard let review = review else {
             return nil
         }
-        return review.answers.compactMap { checkIn in
-            CheckInViewModel(checkIn: checkIn)
+        return review.answers.compactMap { checkin in
+            CheckInViewModel(checkIn: checkin)
         }
     }
     

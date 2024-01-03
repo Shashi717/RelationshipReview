@@ -11,6 +11,8 @@
 		9B2E44DE2B39F38300BCAC49 /* EditUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2E44DD2B39F38300BCAC49 /* EditUserInfoView.swift */; };
 		9B2E44E02B39F43E00BCAC49 /* EmailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2E44DF2B39F43E00BCAC49 /* EmailHelper.swift */; };
 		9B2E44E22B39F4C400BCAC49 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2E44E12B39F4C400BCAC49 /* SettingsView.swift */; };
+		9B2E450F2B43C07500BCAC49 /* PastReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2E450E2B43C07500BCAC49 /* PastReviewsViewModel.swift */; };
+		9B2E45112B44D6A900BCAC49 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2E45102B44D6A900BCAC49 /* UserInfoViewModel.swift */; };
 		9B352DB02AF00B380032ED34 /* sample_review.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B352DAF2AF00B380032ED34 /* sample_review.json */; };
 		9B352DB62AF298540032ED34 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B352DB52AF298540032ED34 /* AnswerView.swift */; };
 		9B3D9D722AD4678900BA8BD3 /* RelationshipReviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D712AD4678900BA8BD3 /* RelationshipReviewApp.swift */; };
@@ -21,7 +23,7 @@
 		9B3D9D8D2AD4678B00BA8BD3 /* RelationshipReviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D8C2AD4678B00BA8BD3 /* RelationshipReviewUITests.swift */; };
 		9B3D9D8F2AD4678B00BA8BD3 /* RelationshipReviewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D8E2AD4678B00BA8BD3 /* RelationshipReviewUITestsLaunchTests.swift */; };
 		9B3D9D9C2AD467C100BA8BD3 /* CommunicationLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D9B2AD467C100BA8BD3 /* CommunicationLevel.swift */; };
-		9B3D9D9E2AD46B4E00BA8BD3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D9D2AD46B4E00BA8BD3 /* User.swift */; };
+		9B3D9D9E2AD46B4E00BA8BD3 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D9D2AD46B4E00BA8BD3 /* UserInfo.swift */; };
 		9B3D9DA02AD46B7F00BA8BD3 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9D9F2AD46B7F00BA8BD3 /* Relationship.swift */; };
 		9B3D9DA22AD46D1A00BA8BD3 /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DA12AD46D1A00BA8BD3 /* CheckIn.swift */; };
 		9B3D9DA52AD48C2100BA8BD3 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D9DA42AD48C2100BA8BD3 /* ReviewViewModel.swift */; };
@@ -74,6 +76,8 @@
 		9B2E44DD2B39F38300BCAC49 /* EditUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoView.swift; sourceTree = "<group>"; };
 		9B2E44DF2B39F43E00BCAC49 /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
 		9B2E44E12B39F4C400BCAC49 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9B2E450E2B43C07500BCAC49 /* PastReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastReviewsViewModel.swift; sourceTree = "<group>"; };
+		9B2E45102B44D6A900BCAC49 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 		9B352DAF2AF00B380032ED34 /* sample_review.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample_review.json; sourceTree = "<group>"; };
 		9B352DB52AF298540032ED34 /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
 		9B3D9D6E2AD4678900BA8BD3 /* RelationshipReview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelationshipReview.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +91,7 @@
 		9B3D9D8C2AD4678B00BA8BD3 /* RelationshipReviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipReviewUITests.swift; sourceTree = "<group>"; };
 		9B3D9D8E2AD4678B00BA8BD3 /* RelationshipReviewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipReviewUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9B3D9D9B2AD467C100BA8BD3 /* CommunicationLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationLevel.swift; sourceTree = "<group>"; };
-		9B3D9D9D2AD46B4E00BA8BD3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9B3D9D9D2AD46B4E00BA8BD3 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		9B3D9D9F2AD46B7F00BA8BD3 /* Relationship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relationship.swift; sourceTree = "<group>"; };
 		9B3D9DA12AD46D1A00BA8BD3 /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
 		9B3D9DA42AD48C2100BA8BD3 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
@@ -260,7 +264,7 @@
 		9B3D9DA32AD4787B00BA8BD3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9B3D9D9D2AD46B4E00BA8BD3 /* User.swift */,
+				9B3D9D9D2AD46B4E00BA8BD3 /* UserInfo.swift */,
 				9B3D9D9F2AD46B7F00BA8BD3 /* Relationship.swift */,
 				9B3D9DB82AD9903500BA8BD3 /* Prompt.swift */,
 				9BB891F72ADC442500B980C7 /* AnswersToSubmit.swift */,
@@ -276,8 +280,10 @@
 				9BEF91342B1C113A0096D566 /* OnboardingViewModel.swift */,
 				9B3D9DAF2AD5A0D500BA8BD3 /* PromptsViewModel.swift */,
 				9B3D9DAD2AD4AB1900BA8BD3 /* PromptViewModel.swift */,
+				9B2E450E2B43C07500BCAC49 /* PastReviewsViewModel.swift */,
 				9B3D9DA42AD48C2100BA8BD3 /* ReviewViewModel.swift */,
 				9B3D9DA62AD493CC00BA8BD3 /* CheckInViewModel.swift */,
+				9B2E45102B44D6A900BCAC49 /* UserInfoViewModel.swift */,
 				9B3D9D9B2AD467C100BA8BD3 /* CommunicationLevel.swift */,
 			);
 			path = ViewModel;
@@ -462,15 +468,17 @@
 				9B3D9DB02AD5A0D500BA8BD3 /* PromptsViewModel.swift in Sources */,
 				9B3D9DB22AD5ACCF00BA8BD3 /* MockData.swift in Sources */,
 				9B3D9DB92AD9903500BA8BD3 /* Prompt.swift in Sources */,
+				9B2E45112B44D6A900BCAC49 /* UserInfoViewModel.swift in Sources */,
 				9B3D9DA72AD493CD00BA8BD3 /* CheckInViewModel.swift in Sources */,
 				9B3D9DA52AD48C2100BA8BD3 /* ReviewViewModel.swift in Sources */,
 				9B3D9DB52AD5B82E00BA8BD3 /* NetworkService.swift in Sources */,
-				9B3D9D9E2AD46B4E00BA8BD3 /* User.swift in Sources */,
+				9B3D9D9E2AD46B4E00BA8BD3 /* UserInfo.swift in Sources */,
 				9B3D9DBB2AD9909200BA8BD3 /* Review.swift in Sources */,
 				9BEF912F2B1C07620096D566 /* MainView.swift in Sources */,
 				9B2E44E22B39F4C400BCAC49 /* SettingsView.swift in Sources */,
 				9BB891F82ADC442500B980C7 /* AnswersToSubmit.swift in Sources */,
 				9B3D9D742AD4678900BA8BD3 /* ContentView.swift in Sources */,
+				9B2E450F2B43C07500BCAC49 /* PastReviewsViewModel.swift in Sources */,
 				9B3D9DBD2AD9997200BA8BD3 /* PromptsView.swift in Sources */,
 				9B3D9DAE2AD4AB1900BA8BD3 /* PromptViewModel.swift in Sources */,
 				9BEF91352B1C113A0096D566 /* OnboardingViewModel.swift in Sources */,

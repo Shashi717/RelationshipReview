@@ -9,7 +9,7 @@ struct AnswersToSubmit: Codable {
     var userId: String
     var partnerId: String
     var date: String
-    var answers: [[String:String]]
+    var answers: [String:String]
     
     enum CodingKeys: String, CodingKey {
         case userId = "user_id"

@@ -63,21 +63,30 @@ import SwiftUI
         }
     }
     
-    func submitAnswers() {
-        guard let prompts = prompts else {
+    func submitAnswers() async {
+        guard let prompts = prompts,
+              let userId = networkClient.getCurrentUser()?.uid,
+              isCompleted else {
             return
         }
-        if isCompleted {
-            let answers: [[String:String]] = prompts.map { [$0.promptId : $0.answer] }
-            if saveAnswers(answers) {
-                print("completed")
-            }
+        let answers: [String:String] = prompts.reduce(into: [String: String]()) { result, promptVM in
+            result[promptVM.id] = promptVM.answer
         }
-    }
-    
-    func saveAnswers(_ answers: [[String:String]]) -> Bool {
-        let urlString = "https://www.google.com/"
-        let answersToSubmit = AnswersToSubmit(userId: "0", partnerId: "1", date: Date.now.ISO8601Format(), answers: answers)
-        return networkClient.submitPrompts(urlString, answersToSubmit)
+        let checkin: [String:Any] = [
+            "data" :
+                [["date": Date.now.ISO8601Format(),
+                  "answers": ["answer": answers]]]
+        ]
+        let checkin2: [String:Any] = [
+            "data" : [
+                "answers": [["partner_answer": answers]
+                           ]]
+        ]
+        do {
+            try await networkClient.submitCheckin(userId, checkin, checkin2)
+        } catch {
+            print(error)
+        }
+        
     }
 }

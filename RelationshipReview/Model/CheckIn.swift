@@ -5,8 +5,10 @@
 //  Created by Shashi Liyanage on 10/9/23.
 //
 
+import FirebaseFirestore
+
 struct CheckIn: Codable {
-    var id: String
+    @DocumentID var id: String?
     var promptId: String
     var answer: String
     var partnerAnswer: String

@@ -9,10 +9,11 @@ import Foundation
 import FirebaseAuth
 
 struct MockData {
-  let mockReviewViewModel = ReviewViewModel(networkClient: NetworkClient(), review: Review(id: "123", date: "1698681926", answers: [
+    let mockReviewViewModel = ReviewViewModel(networkClient: NetworkClient(), review: Review(id: "123", date: "1698681926", answers: [
     CheckIn(id: "1", promptId: "1", answer: "Great", partnerAnswer: "Not Great", markedAsDiscussion: true),
     CheckIn(id: "2", promptId: "2", answer: "Great", partnerAnswer: "Not Great", markedAsDiscussion: false)
-  ]))
+    ]
+  ))
 
   let mockCheckInViewModel = CheckInViewModel(checkIn:  CheckIn(id: "1", promptId: "1", answer: "Great", partnerAnswer: "Not Great", markedAsDiscussion: true))
 

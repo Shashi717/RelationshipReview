@@ -19,8 +19,8 @@ enum PromptType {
 @Observable class PromptViewModel {
     private let prompt: Prompt
     var answer: String
-    var promptId: String {
-        "prompt.id"
+    var id: String {
+        prompt.id ?? ""
     }
     var description: String {
         prompt.description

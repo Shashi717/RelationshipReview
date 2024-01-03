@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct PastReviewsView: View {
+    @State var pastReviewsViewModel: PastReviewsViewModel = PastReviewsViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach($pastReviewsViewModel.reviews, id: \.id) { $review in
+                Text(review.dateString)
+            }
+        }
+        .onAppear {
+            // load past reviews
+            Task {
+                await pastReviewsViewModel.loadPastReviews()
+            }
+        }
     }
 }
 

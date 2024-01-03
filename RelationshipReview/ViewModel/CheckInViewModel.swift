@@ -12,7 +12,7 @@ class CheckInViewModel {
     private let checkIn: CheckIn
     
     var id: String {
-        checkIn.id
+        checkIn.id ?? ""
     }
     var prompt: Prompt? {
         return getPrompt(checkIn.promptId)

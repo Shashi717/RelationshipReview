@@ -40,8 +40,10 @@ struct PromptsView: View {
     }
     
     private func submit() {
-        promptsViewModel.submitAnswers()
-        showReviewView = true
+        Task {
+            await promptsViewModel.submitAnswers()
+            showReviewView = true
+        }
     }
 }
 

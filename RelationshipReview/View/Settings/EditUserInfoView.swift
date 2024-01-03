@@ -9,55 +9,40 @@ import SwiftUI
 import FirebaseAuth
 
 struct EditUserInfoView: View {
-    @State var firstName: String = ""
-    @State var lastName: String = ""
-    @State var partnerEmail: String = ""
-    @State var communicationLevel: CommunicationLevel = .beginner
+    @State var userInfoViewModel = UserInfoViewModel()
     var body: some View {
         VStack {
-            TextField("First Name", text: $firstName, axis: .vertical)
+            TextField("First Name", text: $userInfoViewModel.firstName, axis: .vertical)
                 .textFieldStyle(.roundedBorder)
-            TextField("Last Name", text: $lastName, axis: .vertical)
+            TextField("Last Name", text: $userInfoViewModel.lastName, axis: .vertical)
                 .textFieldStyle(.roundedBorder)
 
             HStack {
                 Text("Communication Level").frame(alignment: .leading)
-                Picker("", selection: $communicationLevel) {
+                Picker("", selection: $userInfoViewModel.communicationLevel) {
                     ForEach(CommunicationLevel.allCases) { level in
                         Text(level.description)
                     }
                 }
             }
 
-            TextField("Partner email", text: $partnerEmail, axis: .vertical)
+            TextField("Partner email", text: $userInfoViewModel.partnerEmail, axis: .vertical)
                 .textFieldStyle(.roundedBorder)
             Button("Submit") {
+                submit()
+            }
+        }.padding(EdgeInsets(top: 32, leading: 32, bottom: 16, trailing: 32))
+            .onAppear {
                 Task {
-                    await submit()
+                    await userInfoViewModel.loadUserInfo()
                 }
-            }.padding(EdgeInsets(top: 32, leading: 32, bottom: 16, trailing: 32))
-        }
+            }
     }
-    private func submit() async {
-        guard EmailHelper.isValidEmail(partnerEmail),
-              !firstName.isEmpty,
-              !lastName.isEmpty,
-              let userId = NetworkClient().getCurrentUser()?.uid else {
-            return
-        }
-        let userInfo: [String: Any] = [
-            "first_name": firstName,
-            "last_name": lastName,
-            "communication_level": communicationLevel.rawValue,
-            "partner_email": partnerEmail
-        ]
-        // network request to add partner email
-        do {
-            try await NetworkClient().updateUserInfo(userId, userInfo)
-        } catch {
-            print(error)
-        }
 
+    private func submit() {
+        Task {
+            await userInfoViewModel.updateUserInfo()
+        }
     }
 }
 
