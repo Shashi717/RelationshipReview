@@ -16,7 +16,7 @@ struct EditUserInfoView: View {
                 .textFieldStyle(.roundedBorder)
             TextField("Last Name", text: $userInfoViewModel.lastName, axis: .vertical)
                 .textFieldStyle(.roundedBorder)
-
+            
             HStack {
                 Text("Communication Level").frame(alignment: .leading)
                 Picker("", selection: $userInfoViewModel.communicationLevel) {
@@ -25,7 +25,7 @@ struct EditUserInfoView: View {
                     }
                 }
             }
-
+            
             TextField("Partner email", text: $userInfoViewModel.partnerEmail, axis: .vertical)
                 .textFieldStyle(.roundedBorder)
             Button("Submit") {
@@ -38,7 +38,7 @@ struct EditUserInfoView: View {
                 }
             }
     }
-
+    
     private func submit() {
         Task {
             await userInfoViewModel.updateUserInfo()
