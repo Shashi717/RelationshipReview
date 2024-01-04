@@ -13,7 +13,7 @@ import UIKit
     private let networkClient: NetworkClient
     private var relationship: Relationship
     private var review: Review?
-    
+
     var id: String {
         review?.id ?? "0"
     }
@@ -40,10 +40,10 @@ import UIKit
             CheckInViewModel(checkIn: checkin)
         }
     }
-    
+
     var profileImage: UIImage?
     var partnerProfileImage: UIImage?
-    
+
     @MainActor
     func getReview(_ urlString: String) async {
         guard let review = await networkClient.fetchReview(urlString) else {
@@ -55,18 +55,11 @@ import UIKit
         self.profileImage = await networkClient.fetchImage(urlString)
         self.partnerProfileImage = await networkClient.fetchImage(manURLString)
     }
-    
-    func getReview() {
-        guard let data = UserDefaults.standard.object(forKey: "Submitted") as? Data,
-              let review = try? JSONDecoder().decode(AnswersToSubmit.self, from: data) else {
-            return
-        }
-    }
-    
+
     func markAsDiscussion(_ id: String) async -> Bool {
         return await networkClient.markAsDiscussion("", id)
     }
-    
+
     init(networkClient: NetworkClient, review: Review? = nil) {
         self.networkClient = networkClient
         // temp hard coded data
