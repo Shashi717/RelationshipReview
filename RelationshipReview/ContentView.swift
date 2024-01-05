@@ -14,24 +14,31 @@ struct ContentView: View {
     var reviewViewModel: ReviewViewModel
     @State var isLoggedIn = NetworkClient().getCurrentUser() != nil
     var body: some View {
-        NavigationStack {
-            if isLoggedIn {
-                MainView(promptsViewModel: promptsViewModel, reviewViewModel: reviewViewModel)
-                    .toolbar {
-                        ToolbarItem(placement: .topBarLeading) {
-                            NavigationLink (destination: SettingsView(isLoggedIn: $isLoggedIn)) {
-                                Image(systemName: "gearshape")
+        if isLoggedIn {
+            TabView {
+                NavigationStack {
+                    MainView(promptsViewModel: promptsViewModel, reviewViewModel: reviewViewModel)
+                        .toolbar {
+                            ToolbarItem(placement: .topBarLeading) {
+                                Text("Review")
+                                    .font(.headline)
                             }
                         }
-                        ToolbarItem(placement: .topBarTrailing) {
-                            NavigationLink (destination: PastReviewsView()) {
-                                Image(systemName: "list.bullet")
-                            }
-                        }
+                }
+                .tabItem {
+                    Image(systemName: "house")
+                }
+                PastReviewsView()
+                    .tabItem {
+                        Image(systemName: "list.bullet")
                     }
-            } else {
-                OnboardingView(onboardingViewModel: OnboardingViewModel(), isLoggedIn: $isLoggedIn)
+                SettingsView(isLoggedIn: $isLoggedIn)
+                    .tabItem {
+                        Image(systemName: "gearshape")
+                    }
             }
+        } else {
+            OnboardingView(onboardingViewModel: OnboardingViewModel(), isLoggedIn: $isLoggedIn)
         }
     }
 }
