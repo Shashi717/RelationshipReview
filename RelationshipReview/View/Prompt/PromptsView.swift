@@ -16,23 +16,37 @@ struct PromptsView: View {
     var body: some View {
         if let prompts = promptsViewModel.prompts, !prompts.isEmpty {
             VStack {
-                Button("", systemImage: "checkmark.circle") {
-                    submit()
-                }
-                .disabled(!promptsViewModel.isCompleted)
-                .tint(.green)
+                Spacer()
+                PromptView(promptViewModel: prompts[currentIndex])
+                Spacer()
                 HStack {
-                    Button("", systemImage: "arrowshape.backward.circle") {
+                    Button {
                         currentIndex -= 1
+                    } label: {
+                        Image(systemName: "arrowshape.backward.circle")
+                            .resizable()
+                            .frame(width: 50, height: 50)
                     }
                     .disabled(currentIndex == 0)
+                    Spacer()
+                    Button {
+                        submit()
+                    } label: {
+                        Image(systemName: "checkmark.circle")
+                            .resizable()
+                            .frame(width: 75, height: 75)
+                    }
+                    .disabled(!promptsViewModel.isCompleted)
                     .tint(.green)
-                    PromptView(promptViewModel: prompts[currentIndex])
-                    Button("", systemImage: "arrowshape.forward.circle") {
+                    Spacer()
+                    Button {
                         currentIndex += 1
+                    } label: {
+                        Image(systemName: "arrowshape.forward.circle")
+                            .resizable()
+                            .frame(width: 50, height: 50)
                     }
                     .disabled(currentIndex == prompts.count - 1)
-                    .tint(.green)
                 }
             }
             .padding(EdgeInsets(top: 32, leading: 32, bottom: 32, trailing: 32))
