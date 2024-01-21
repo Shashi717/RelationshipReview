@@ -27,7 +27,7 @@ struct PromptsView: View {
                             .resizable()
                             .frame(width: 50, height: 50)
                     }
-                    .disabled(currentIndex == 0)
+                    .disabled(currentIndex <= 0)
                     Spacer()
                     Button {
                         submit()
@@ -46,7 +46,7 @@ struct PromptsView: View {
                             .resizable()
                             .frame(width: 50, height: 50)
                     }
-                    .disabled(currentIndex == prompts.count - 1)
+                    .disabled(currentIndex >= prompts.count - 1)
                 }
             }
             .padding(EdgeInsets(top: 32, leading: 32, bottom: 32, trailing: 32))
