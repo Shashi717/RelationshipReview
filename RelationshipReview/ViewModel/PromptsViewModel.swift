@@ -12,7 +12,7 @@ import SwiftUI
 // This VM represents a set of questions to be presented to the user
 @Observable class PromptsViewModel {
     private let networkClient: NetworkClient
-    private let relationship: Relationship
+    private var relationship: Relationship?
     let user: User?
     var prompts: [PromptViewModel]?
     
@@ -28,7 +28,10 @@ import SwiftUI
     }
     
     var excludedPromptTypes: Set<PromptType> {
-        return Set(relationship.excludedPromptTypes.compactMap { type in
+        guard let excludedPromptTypes = relationship?.excludedPromptTypes else {
+            return []
+        }
+        return Set(excludedPromptTypes.compactMap { type in
             switch type {
             case 0:
                 return .general
@@ -46,12 +49,10 @@ import SwiftUI
         self.networkClient = networkClient
         self.prompts = prompts
         self.user = networkClient.getCurrentUser()
-        // temp hard coded data
-        self.relationship = Relationship(id: "1", partnerId: "2", communicationLevel: 0, relationshipStartDate: Date.now.description, excludedPromptTypes: [])
     }
     
     @MainActor
-    func getPrompts() async {
+    func loadPrompts() async {
         guard let prompts = await networkClient.fetchPrompts("prompts") else {
             return
         }
@@ -62,10 +63,19 @@ import SwiftUI
             !excludedPromptTypes.contains(prompt.type)
         }
     }
-    
+
+    @MainActor
+    func loadRelationship(id: String) async {
+        do {
+            self.relationship = try await networkClient.fetchRelationship(id)
+        } catch {
+            print(error)
+        }
+    }
+
     func submitAnswers() async {
         guard let prompts = prompts,
-              let userId = networkClient.getCurrentUser()?.uid,
+              let relationshipId = relationship?.id,
               isCompleted else {
             return
         }
@@ -83,7 +93,7 @@ import SwiftUI
                            ]]
         ]
         do {
-            try await networkClient.submitCheckin(userId, checkin, checkin2)
+            try await networkClient.submitCheckin(relationshipId, checkin, checkin2)
         } catch {
             print(error)
         }

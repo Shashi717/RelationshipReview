@@ -11,7 +11,7 @@ import UIKit
 // Represents set of checkins
 @Observable class ReviewViewModel {
     private let networkClient: NetworkClient
-    private var relationship: Relationship
+    private var relationship: Relationship?
     private var review: Review?
 
     var id: String {
@@ -62,8 +62,6 @@ import UIKit
 
     init(networkClient: NetworkClient, review: Review? = nil) {
         self.networkClient = networkClient
-        // temp hard coded data
-        self.relationship = Relationship(id: "1", partnerId: "2", communicationLevel: 0, relationshipStartDate: Date.now.description, excludedPromptTypes: [])
         self.review = review
     }
 }

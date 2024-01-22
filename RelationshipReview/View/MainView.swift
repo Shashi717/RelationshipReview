@@ -23,7 +23,7 @@ struct MainView: View {
         }
         .onAppear {
             Task.init() {
-                await promptsViewModel.getPrompts()
+                await promptsViewModel.loadPrompts()
                 //              await reviewViewModel.getReview(reviewPath)
             }
         }

@@ -17,6 +17,7 @@ struct UserInfo: Codable {
     var gender: Int?
     var sexualOrientation: Int?
     var profileImageURL: String?
+    var relationshipId: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -27,5 +28,6 @@ struct UserInfo: Codable {
         case gender
         case sexualOrientation = "sexual_orientation"
         case profileImageURL = "profile_image_url"
+        case relationshipId = "relationship_id"
     }
 }

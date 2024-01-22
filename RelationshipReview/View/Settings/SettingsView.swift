@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Binding var userInfoViewModel: UserInfoViewModel
     @Binding var isLoggedIn: Bool
     var body: some View {
         NavigationStack {
             VStack {
-                EditUserInfoView()
+                EditUserInfoView(userInfoViewModel: userInfoViewModel)
                     .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+                Button {
+                    updateRelationship()
+                } label: {
+                    Text("Update Relationship")
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -33,8 +39,14 @@ struct SettingsView: View {
             print(error)
         }
     }
+
+    private func updateRelationship() {
+        Task {
+            await userInfoViewModel.createRelationship()
+        }
+    }
 }
 
 #Preview {
-    SettingsView(isLoggedIn: .constant(false))
+    SettingsView(userInfoViewModel: .constant(UserInfoViewModel(networkClient: NetworkClient())), isLoggedIn: .constant(false))
 }

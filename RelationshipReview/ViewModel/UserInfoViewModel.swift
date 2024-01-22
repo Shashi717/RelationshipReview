@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable class UserInfoViewModel {
-    private let networkClient = NetworkClient()
+    private let networkClient: NetworkClient
 
     private var userInfo: UserInfo? {
         didSet {
@@ -19,6 +19,7 @@ import Foundation
             lastName = userInfo.lastName
             communicationLevel = CommunicationLevel(rawValue: userInfo.communicationLevel) ?? .beginner
             partnerEmail = userInfo.partnerEmail
+            relationshipId = userInfo.relationshipId
         }
     }
     var email: String? {
@@ -31,8 +32,11 @@ import Foundation
     var lastName: String = ""
     var communicationLevel: CommunicationLevel = .beginner
     var partnerEmail: String = ""
+    var relationshipId: String?
 
-    init() { }
+    init(networkClient: NetworkClient) {
+        self.networkClient = networkClient
+    }
 
     func loadUserInfo() async {
         guard let email = email else {
@@ -43,6 +47,42 @@ import Foundation
         } catch {
             print(error)
         }
+    }
+
+    @MainActor
+    func createRelationship() async {
+        let relationshipId = UUID().uuidString
+        let userId = userId
+        let partnerId = userId
+        let communicationLevel = communicationLevel.rawValue
+//        var relationshipStartDate: String
+        let excludedPromptTypes = [0]
+        guard EmailHelper.isValidEmail(partnerEmail),
+              let partnerEmail = email else {
+            return
+        }
+
+        let relatiosnship: [String: Any] = [
+            "partners": [email, partnerEmail],
+            "communication_level": communicationLevel,
+            "excluded_prompt_types": excludedPromptTypes
+        ]
+        do {
+            let success = try await networkClient.updateRelationship(relationshipId, relatiosnship)
+            if success {
+                try await updateUserInfoWithRelationship(relationshipId)
+            }
+        } catch {
+            print(error)
+        }
+    }
+
+    func updateUserInfoWithRelationship(_ id: String) async throws {
+        guard EmailHelper.isValidEmail(partnerEmail),
+        let email = email else {
+            return
+        }
+        try await networkClient.updateUserInfoWithRelationship(email, id)
     }
 
     func updateUserInfo() async {
@@ -61,7 +101,6 @@ import Foundation
             "communication_level": communicationLevel.rawValue,
             "partner_email": partnerEmail
         ]
-        // network request to add partner email
         do {
             try await networkClient.updateUserInfo(email, userInfo)
         } catch {

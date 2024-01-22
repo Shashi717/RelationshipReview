@@ -24,9 +24,10 @@ struct RelationshipReviewApp: App {
     var body: some Scene {
         WindowGroup {
             let networkClient = NetworkClient()
+            let userInfoViewModel = UserInfoViewModel(networkClient: networkClient)
             let promptsViewModel = PromptsViewModel(networkClient: networkClient)
             let reviewViewModel = ReviewViewModel(networkClient: networkClient)
-            ContentView(promptsViewModel: promptsViewModel, reviewViewModel: reviewViewModel)
+            ContentView(userInfoViewModel: userInfoViewModel, promptsViewModel: promptsViewModel, reviewViewModel: reviewViewModel)
         }
     }
 }

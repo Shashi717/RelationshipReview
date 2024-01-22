@@ -17,8 +17,6 @@ class NetworkClient {
     let firebaseAuth = Auth.auth()
     let firestore = Firestore.firestore()
 
-
-
     func fetchPrompts(_ query: String) async -> [Prompt]? {
         let collectionReference = firestore.collection(query)
 
@@ -67,10 +65,38 @@ class NetworkClient {
         return reviews
     }
 
-    func submitCheckin(_ userId: String, _ answers: [String: Any], _ partnerAnswers: [String:Any]) async throws {
+    func submitCheckin(_ relationshipId: String, _ answers: [String: Any], _ partnerAnswers: [String:Any]) async throws {
         let collectionReference1 = firestore.collection("reviews")
-        try await collectionReference1.document(userId).setData(answers, merge: true)
+        try await collectionReference1.document(relationshipId).setData(answers, merge: true)
         try await collectionReference1.document("partnerUserId").setData(partnerAnswers, merge: true)
+    }
+}
+
+// MARK: Relationship
+
+extension NetworkClient {
+
+    func fetchRelationship(_ id: String) async throws -> Relationship {
+        let collectionReference = firestore.collection("relationshp").document(id)
+        let querySnapshot = try await collectionReference.getDocument()
+        let relationship = try querySnapshot.data(as: Relationship.self)
+        return relationship
+    }
+
+    func updateRelationship(_ id: String, _ relationship: [String: Any]) async throws -> Bool {
+        let collectionReference = firestore.collection("relationship").document(id)
+        do {
+            try await collectionReference.setData(relationship)
+            return true
+        } catch {
+            return false
+        }
+    }
+
+    func updateUserInfoWithRelationship(_ email: String, _ relationshipId: String) async throws {
+        let relationship = ["relationship_id": relationshipId]
+        let collectionReference = firestore.collection("userInfo").document(email)
+        try await collectionReference.setData(relationship, merge: true)
     }
 }
 
@@ -87,7 +113,7 @@ extension NetworkClient {
 
     func updateUserInfo(_ email: String, _ userInfo: [String: Any]) async throws {
         let collectionReference = firestore.collection("userInfo").document(email)
-        try await collectionReference.setData(userInfo)
+        try await collectionReference.setData(userInfo, merge: true)
     }
 }
 

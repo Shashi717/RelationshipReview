@@ -9,7 +9,8 @@ import SwiftUI
 import FirebaseAuth
 
 struct EditUserInfoView: View {
-    @State var userInfoViewModel = UserInfoViewModel()
+    @State var userInfoViewModel: UserInfoViewModel
+//    @Binding var relationship
     var body: some View {
         VStack {
             TextField("First Name", text: $userInfoViewModel.firstName, axis: .vertical)
@@ -37,11 +38,6 @@ struct EditUserInfoView: View {
         .padding(EdgeInsets(top: 24, leading: 24, bottom: 0, trailing: 24))
         .background(.ultraThickMaterial)
         .clipShape(.rect(cornerSize: CGSize(width: 20, height: 20)))
-        .onAppear {
-            Task {
-                await userInfoViewModel.loadUserInfo()
-            }
-        }
     }
 
     private func submit() {
@@ -52,5 +48,5 @@ struct EditUserInfoView: View {
 }
 
 #Preview {
-    EditUserInfoView()
+    EditUserInfoView(userInfoViewModel: UserInfoViewModel(networkClient: NetworkClient()))
 }
